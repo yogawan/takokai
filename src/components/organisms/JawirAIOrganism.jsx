@@ -62,7 +62,7 @@ const JawirAIOrganism = () => {
   const handleCopyCode = (code, index) => {
     navigator.clipboard.writeText(code);
     setCopiedIndex(index);
-    setTimeout(() => setCopiedIndex(null), 2000); // Reset after 2 seconds
+    setTimeout(() => setCopiedIndex(null), 2000);
   };
 
   const renderContent = (content) =>
