@@ -6,9 +6,7 @@ import JawirAIOrganism from "../organisms/JawirAIOrganism";
 const ChatAIPage = () => {
     return (
         <div className="bg-[url('/assets/bg.png')] bg-cover bg-center h-screen">
-            {/* <CreatorOrganism /> */}
             <JawirAIOrganism />
-            {/* <FooterOrganism /> */}
         </div>
     );
 };
