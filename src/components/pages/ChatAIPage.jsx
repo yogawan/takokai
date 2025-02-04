@@ -10,7 +10,7 @@ const ChatAIPage = () => {
             <JawirAIOrganism />
             {/* <FooterOrganism /> */}
         </div>
-    )
+    );
 };
 
 export default ChatAIPage;
