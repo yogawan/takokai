@@ -140,11 +140,9 @@ const JawirAIOrganism = () => {
 
             <div className="relative inline-block">
               <select className="appearance-none focus:outline-none h-fit w-fit bg-transparent text-white border p-3 border-white/15 rounded-full text-xs pr-8">
-                <option value="">MetaAI - llama3-8b-8192</option>
+                <option value="">MetaAI-llama3-8b-8192</option>
                 <option value="" disabled>deepseek-r1 (coming soon)</option>
-                <option value="" disabled>Claude 2.5 Sonnet</option>
-                <option value="" disabled>4o Mini</option>
-                <option value="" disabled>DeepSeek R1 671b</option>
+                <option value="" disabled>deepseek-v3 (coming soon)</option>
               </select>
               <Icon
                 icon="mingcute:ai-fill"
