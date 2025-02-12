@@ -99,7 +99,8 @@ const SidebarOrganism = () => {
         </button>
 
         {/* History Chat */}
-        <ul className="space-y-[-12px] text-center">
+        <ul className="space-y-[-12px] text-start">
+          <p className="text-3xl text-white m-3">Chat Histori</p>
           {menuItems.map((item, index) => (
             <li
               key={index}
@@ -107,7 +108,7 @@ const SidebarOrganism = () => {
             >
               <Link
                 to={item.path}
-                className="font-inter ml-2 text-xl  m-3 font-thin transition-transform transform hover:scale-110"
+                className="font-inter m-3 text-xl font-thin transition-transform transform hover:scale-110"
                 onClick={toggleMenu}
               >
                 {item.label}
