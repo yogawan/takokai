@@ -6,12 +6,12 @@ import store from "./redux/store";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import ChatAIPage from "./components/pages/ChatAIPage";
+import Llama3 from "./components/pages/Llama3";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <ChatAIPage />,
+    element: <Llama3 />,
   }
 ]);
 
