@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Icon } from "@iconify/react/dist/iconify.js";
+// import { Icon } from "@iconify/react/dist/iconify.js";
 import { Link } from "react-router-dom";
-import ProtectedImageAtom from "../atoms/ProtectedImageAtom";
+// import ProtectedImageAtom from "../atoms/ProtectedImageAtom";
 
 const NavbarOrganism = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
