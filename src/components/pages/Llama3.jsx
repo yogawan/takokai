@@ -132,7 +132,7 @@ const Llama3 = () => {
           </button>
         </div>
       </div>
-      <FooterOrganism />
+      {/* <FooterOrganism /> */}
     </div>
   );
 };
