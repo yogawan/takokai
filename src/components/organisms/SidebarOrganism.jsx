@@ -68,6 +68,9 @@ const SidebarOrganism = () => {
           </button>
         </div>
 
+        {/* Label */}
+        <p className="text-white text-xs p-2 border border-white/15 rounded-full" >Under Development</p>
+
         {/* Logo */}
         <div className="flex items-center text-lg font-inter font-bold italic underline text-black dark:text-white">
           <div className="w-10 h-10 rounded-full bg-white"></div>

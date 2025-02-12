@@ -118,7 +118,7 @@ const Llama3 = () => {
                   <option value="" disabled>DeepSeek-R1 (coming soon)</option>
                   <option value="" disabled>DeepSeek-V3 (coming soon)</option>
                 </select>
-                <Icon icon="mingcute:ai-fill" className="absolute top-1/2 right-3 transform -translate-y-1/2 text-white pointer-events-none" />
+                <Icon icon="lsicon:switch-filled" className="absolute top-1/2 right-3 transform -translate-y-1/2 text-white pointer-events-none" />
               </div>
               <button onClick={handleSend} className={`p-5 w-[64px] font-semibold rounded-full transition ${isLoading ? "bg-black text-white cursor-not-allowed" : "bg-black text-white"}`} disabled={isLoading}>
                 <Icon icon={isLoading ? "line-md:loading-twotone-loop" : "line-md:arrow-small-right"} width="24" height="24" />
