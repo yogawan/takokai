@@ -229,7 +229,7 @@ const JawirAIOrganism = () => {
 const ChatAIPage = () => {
     return (
         <div className="bg-[url('/assets/bg.png')] bg-cover bg-center h-screen">
-            <JawirAIOrganism />
+          <JawirAIOrganism></JawirAIOrganism>
         </div>
     );
 };
