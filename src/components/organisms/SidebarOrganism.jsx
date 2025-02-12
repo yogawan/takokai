@@ -5,7 +5,7 @@ const SidebarOrganism = () => {
         <nav>
             <ul>
                 <li>
-                    <a href="#">Hello World!</a>
+                    <a href="#">Test</a>
                 </li>
             </ul>
         </nav>
