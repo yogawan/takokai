@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-// import React from "react";
-import JawirAIOrganism from "../organisms/JawirAIOrganism";
-// import FooterOrganism from "../organisms/FooterOrganism";
-// import CreatorOrganism from "../organisms/CreatorOrganism";
-// import NavbarOrganism from "../organisms/NavbarOrganism";
-=======
 import React, { useState, useEffect } from "react";
 import { requestToGroqAI } from "../../services/groq/groq";
 import { Icon } from "@iconify/react/dist/iconify.js";
@@ -232,17 +225,11 @@ const JawirAIOrganism = () => {
     </div>
   );
 };
->>>>>>> staging
 
 const ChatAIPage = () => {
     return (
         <div className="bg-[url('/assets/bg.png')] bg-cover bg-center h-screen">
-<<<<<<< HEAD
-            {/* <CreatorOrganism /> */}
-            {/* <NavbarOrganism></NavbarOrganism> */}
-=======
->>>>>>> staging
-            <JawirAIOrganism />
+          <JawirAIOrganism></JawirAIOrganism>
         </div>
     );
 };
