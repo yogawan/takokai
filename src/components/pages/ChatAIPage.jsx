@@ -1,6 +1,6 @@
 import React from "react";
 import JawirAIOrganism from "../organisms/JawirAIOrganism";
-import FooterOrganism from "../organisms/FooterOrganism";
+// import FooterOrganism from "../organisms/FooterOrganism";
 // import CreatorOrganism from "../organisms/CreatorOrganism";
 import NavbarOrganism from "../organisms/NavbarOrganism";
 
