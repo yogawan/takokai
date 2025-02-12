@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { requestToGroqAI } from "../../services/groq/groq";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import SidebarOrganism from "../organisms/SidebarOrganism";
+import FooterOrganism from "../organisms/FooterOrganism";
 
 const Llama3 = () => {
   const [input, setInput] = useState("");
@@ -114,8 +115,8 @@ const Llama3 = () => {
               <div className="relative inline-block">
                 <select className="appearance-none focus:outline-none h-fit w-fit bg-transparent text-white border p-3 border-white/15 rounded-full text-xs pr-8">
                   <option value="">llama3-8b-8192</option>
-                  <option value="" disabled>deepseek-r1 (coming soon)</option>
-                  <option value="" disabled>deepseek-v3 (coming soon)</option>
+                  <option value="" disabled>DeepSeek-R1 (coming soon)</option>
+                  <option value="" disabled>DeepSeek-V3 (coming soon)</option>
                 </select>
                 <Icon icon="mingcute:ai-fill" className="absolute top-1/2 right-3 transform -translate-y-1/2 text-white pointer-events-none" />
               </div>
@@ -131,6 +132,7 @@ const Llama3 = () => {
           </button>
         </div>
       </div>
+      {/* <FooterOrganism /> */}
     </div>
   );
 };
