@@ -112,10 +112,10 @@ const Llama3 = () => {
       <SidebarOrganism />
       <div className="pt-[100px] pb-[500px] pl-3 pr-3 xl:pt-[200px] xl:pb-[300px] xl:pl-[300px] xl:pr-[300px]">
         <div>
-          <div className="pl-5 pb-5 bg-none">
+          <div className="pl-5 pr-5 pb-5 bg-none">
             <img className="w-[128px] mb-5" src="./assets/logo.png" alt="" />
             <p className="text-3xl font-thin text-white">Hi, i'm JawirAI.</p>
-            <p className="text-xl font-thin text-white/75"><u className="text-white">User Interface</u> to interact with AI Models.</p>
+            <p className="text-xl font-thin text-white/75"><u><a href="https://github.com/yogawan/jawiraiv1.6.3">Open Source</a></u> <i className="text-white">User Interface</i> to interact with AI Model.</p>
           </div>
 
           <div className="bg-transparent border border-white/15 rounded-3xl">
@@ -133,8 +133,8 @@ const Llama3 = () => {
               <div className="relative inline-block">
                 <select className="appearance-none focus:outline-none h-fit w-fit bg-transparent text-white border p-3 border-white/15 rounded-full text-xs pr-8">
                   <option value="">llama3-8b-8192</option>
-                  <option value="" disabled>deepseek-r1 (coming soon)</option>
-                  <option value="" disabled>deepseek-v3 (coming soon)</option>
+                  <option value="" disabled>DeepSeek-R1 (coming soon)</option>
+                  <option value="" disabled>DeepSeek-V3 (coming soon)</option>
                 </select>
                 <Icon
                   icon="mingcute:ai-fill"
@@ -161,7 +161,7 @@ const Llama3 = () => {
           <div className="flex-col">
             {chatHistory.length === 0 ? (
               <div className="mt-20">
-                <p className="text-xs text-center pl-5 font-light leading-[80%] text-white/50">No messages history</p>
+                <p className="text-xs text-center p-1 font-light leading-[120%] text-white/50">*Fitur-fitur utama masih dalam tahap pengembangan, jika kamu tertarik untuk berkontribusi mengembangkan JawirAI <u><a href="https://github.com/yogawan/jawiraiv1.6.3">disini</a></u></p>
               </div>
             ) : (
               chatHistory.map((message, index) => (
