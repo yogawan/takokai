@@ -124,7 +124,7 @@ const Llama3 = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Type your message..."
+              placeholder="Ngetik e neng kene tel..."
               className="bg-transparent text-white rounded-3xl w-full h-20 p-5 resize-none focus:outline-none"
               disabled={isLoading}
             />
@@ -132,7 +132,8 @@ const Llama3 = () => {
             <div className="flex justify-between items-center p-3 rounded-3xl">
               <div className="relative inline-block">
                 <select className="appearance-none focus:outline-none h-fit w-fit bg-transparent text-white border p-3 border-white/15 rounded-full text-xs pr-8">
-                  <option value="">llama3-8b-8192</option>
+                  <option value="">JawirAI1.3.6</option>
+                  <option value="" disabled>llama3-8b-8192</option>
                   <option value="" disabled>DeepSeek-R1 (coming soon)</option>
                   <option value="" disabled>DeepSeek-V3 (coming soon)</option>
                 </select>
@@ -161,7 +162,7 @@ const Llama3 = () => {
           <div className="flex-col">
             {chatHistory.length === 0 ? (
               <div className="mt-20">
-                <p className="text-xs text-center p-1 font-light leading-[120%] text-white/50">*Fitur-fitur utama masih dalam tahap pengembangan, jika kamu tertarik untuk berkontribusi mengembangkan JawirAI <u><a href="https://github.com/yogawan/jawiraiv1.6.3">disini</a></u></p>
+                <p className="text-xs text-center p-1 font-light leading-[120%] text-white/50">*Fitur utama masih dalam tahap pengembangan, jika kamu tertarik untuk berkontribusi mengembangkan JawirAI <u><a href="https://github.com/yogawan/jawiraiv1.6.3">disini</a></u></p>
               </div>
             ) : (
               chatHistory.map((message, index) => (
