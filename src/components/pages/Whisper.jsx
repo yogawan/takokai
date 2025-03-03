@@ -1,13 +1,27 @@
 import React, { useState, useEffect } from "react";
-import { requestToGroqAI } from "../../services/groq/groq";
+import { requestToWhisper } from "../../services/models/whisper-large-v3-turbo";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import SidebarOrganism from "../organisms/SidebarOrganism";
+import { Link } from "react-router-dom";
 
-const Llama3 = () => {
+const Whisper = () => {
   const [input, setInput] = useState("");
   const [chatHistory, setChatHistory] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [copiedIndex, setCopiedIndex] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("whisper-large-v3-turbo");
+
+  const options = [
+    { label: "deepseek-r1-distill-llama-70b", value: "/deepseek-r1-distill-llama-70b", disabled: false },
+    { label: "gemma2-9b-it", value: "/gemma2-9b-it", disabled: false },
+    { label: "jawiraiv1-6-3", value: "/", disabled: false },
+    { label: "llama3-70b-8192", value: "/llama3-70b-8192", disabled: false },
+    { label: "specdec-llama-3.3-70b", value: "/specdec-llama-3.3-70b", disabled: false },
+    { label: "versatile-llama-3.3-70b", value: "/versatile-llama-3.3-70b", disabled: false },
+    { label: "vision-llama-3.2-90b", value: "/vision-llama-3.2-90b", disabled: false },
+    { label: "whisper-large-v3-turbo", value: "/whisper-large-v3-turbo", disabled: false },
+  ];
 
   useEffect(() => {
     try {
@@ -38,7 +52,7 @@ const Llama3 = () => {
     setIsLoading(true);
 
     try {
-      const aiResponse = await requestToGroqAI(input);
+      const aiResponse = await requestToWhisper(input);
       const aiMessage = { role: "ai", content: aiResponse };
       setChatHistory((prev) => [...prev, aiMessage]);
     } catch (error) {
@@ -111,7 +125,9 @@ const Llama3 = () => {
     <div className="bg-[url('/assets/bg.png')] bg-cover bg-center h-screen">
       <SidebarOrganism />
       <div className="pt-[100px] pb-[500px] pl-3 pr-3 xl:pt-[200px] xl:pb-[300px] xl:pl-[300px] xl:pr-[300px]">
+        
         <div>
+
           <div className="pl-5 pr-5 pb-5 bg-none">
             <img className="w-[128px] mb-5" src="./assets/logo.png" alt="" />
             <p className="text-3xl font-thin text-white">Hi, i'm JawirAI.</p>
@@ -119,28 +135,50 @@ const Llama3 = () => {
           </div>
 
           <div className="bg-transparent border border-white/15 rounded-3xl">
+            
             <textarea
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Ngetik e neng kene tel..."
+              placeholder="Ayo tanya sesuatu..."
               className="bg-transparent text-white rounded-3xl w-full h-20 p-5 resize-none focus:outline-none"
               disabled={isLoading}
             />
 
             <div className="flex justify-between items-center p-3 rounded-3xl">
+              
               <div className="relative inline-block">
-                <select className="appearance-none focus:outline-none h-fit w-fit bg-transparent text-white border p-3 border-white/15 rounded-full text-xs pr-8">
-                  <option value="">JawirAI1.3.6</option>
-                  <option value="" disabled>llama3-8b-8192</option>
-                  <option value="" disabled>DeepSeek-R1 (coming soon)</option>
-                  <option value="" disabled>DeepSeek-V3 (coming soon)</option>
-                </select>
-                <Icon
-                  icon="mingcute:ai-fill"
-                  className="absolute top-1/2 right-3 transform -translate-y-1/2 text-white pointer-events-none"
-                />
+                <button
+                  className="h-fit w-fit bg-transparent text-white border p-3 border-white/15 rounded-full text-xs pr-8 flex items-center gap-2"
+                  onClick={() => setIsOpen(!isOpen)}
+                >
+                  {selectedOption}
+                  <Icon icon="mingcute:ai-fill" className="text-white" />
+                </button>
+                {isOpen && (
+                  <div className="absolute mt-2 w-full bg-black text-white border border-white/15 rounded-lg shadow-lg z-10">
+                    {options.map((option) => (
+                      option.disabled ? (
+                        <span
+                          key={option.value}
+                          className="block w-full text-left px-4 py-2 text-xs text-gray-500 cursor-not-allowed"
+                        >
+                          {option.label}
+                        </span>
+                      ) : (
+                        <Link
+                          key={option.value}
+                          to={option.value}
+                          className="block w-full text-left px-4 py-2 text-xs hover:bg-gray-700"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {option.label}
+                        </Link>
+                      )
+                    ))}
+                  </div>
+                )}
               </div>
 
               <button
@@ -154,15 +192,18 @@ const Llama3 = () => {
               >
                 <Icon icon={ isLoading ? "line-md:loading-twotone-loop" : "line-md:arrow-small-right"} width="24" height="24" />
               </button>
+
             </div>
+
           </div>
+
         </div>
 
-        <div className="">
+        <div>
           <div className="flex-col">
             {chatHistory.length === 0 ? (
               <div className="mt-20">
-                <p className="text-xs text-center p-1 font-light leading-[120%] text-white/50">*Fitur utama masih dalam tahap pengembangan, jika kamu tertarik untuk berkontribusi mengembangkan JawirAI <u><a href="https://github.com/yogawan/jawiraiv1.6.3">disini</a></u></p>
+                <p className="text-xs text-center p-1 font-light leading-[120%] text-white/50">Jika kamu menemukan pesan yang tidak sepantasnya, harap laporkan <u><a href="https://github.com/yogawan/jawiraiv1.6.3">disini</a></u></p>
               </div>
             ) : (
               chatHistory.map((message, index) => (
@@ -218,4 +259,4 @@ const Llama3 = () => {
   );
 };
 
-export default Llama3;
+export default Whisper;
