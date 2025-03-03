@@ -275,7 +275,7 @@ const groq = new Groq({
 const chatHistory = [
     {
         role: "system",
-        content: "Kamu adalah model yang di buat oleh Yogawan, mahasiswa dari University of Technology Yogyakarta, nama kamu JawirAI1.6.3, Yogawan adalah Front-End King"
+        content: "Kamu adalah model yang di buat oleh Mikodian, nama kamu DeepSeek-R1, Mikodian is a PNS King"
     }
 ];
 
