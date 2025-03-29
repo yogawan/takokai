@@ -711,22 +711,21 @@ const AssistantAI = ()=>{
     const [chatHistory, setChatHistory] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])([]);
     const [isLoading, setIsLoading] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(false);
     (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useEffect"])(()=>{
-        try {
-            const savedHistory = JSON.parse(localStorage.getItem("chatHistory"));
-            if (Array.isArray(savedHistory)) {
-                setChatHistory(savedHistory);
+        const fetchChatHistory = async ()=>{
+            try {
+                const token = localStorage.getItem("token");
+                const response = await axios.get("/api/chat/get", {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                setChatHistory(response.data.chatHistory);
+            } catch (error) {
+                console.error("Failed to fetch chat history:", error);
             }
-        } catch  {
-            setChatHistory([]);
-        }
+        };
+        fetchChatHistory();
     }, []);
-    (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useEffect"])(()=>{
-        if (chatHistory.length > 0) {
-            localStorage.setItem("chatHistory", JSON.stringify(chatHistory));
-        }
-    }, [
-        chatHistory
-    ]);
     const handleSend = async ()=>{
         if (!input.trim() || input.length > 500) return;
         const userMessage = {
@@ -745,6 +744,17 @@ const AssistantAI = ()=>{
                 role: "ai",
                 content: aiResponse
             };
+            const token = localStorage.getItem("token");
+            await axios.post("/api/chat/save", userMessage, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            await axios.post("/api/chat/save", aiMessage, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
             setChatHistory((prev)=>[
                     ...prev,
                     aiMessage
@@ -763,14 +773,13 @@ const AssistantAI = ()=>{
     };
     const handleClearHistory = ()=>{
         setChatHistory([]);
-        localStorage.removeItem("chatHistory");
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
         className: "w-full flex flex-col",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ChatHeader$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/src/components/AssistantAI.jsx",
-                lineNumber: 55,
+                lineNumber: 63,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ChatForm$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -780,7 +789,7 @@ const AssistantAI = ()=>{
                 isLoading: isLoading
             }, void 0, false, {
                 fileName: "[project]/src/components/AssistantAI.jsx",
-                lineNumber: 56,
+                lineNumber: 64,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ChatHistory$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -789,13 +798,13 @@ const AssistantAI = ()=>{
                 handleClearHistory: handleClearHistory
             }, void 0, false, {
                 fileName: "[project]/src/components/AssistantAI.jsx",
-                lineNumber: 57,
+                lineNumber: 65,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/AssistantAI.jsx",
-        lineNumber: 54,
+        lineNumber: 62,
         columnNumber: 5
     }, this);
 };

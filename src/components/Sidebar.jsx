@@ -66,7 +66,7 @@ const Sidebar = () => {
         </div>
         <p className="text-white text-xs px-3 py-3 border border-white/15 rounded-full">JawirAI v2.6.1</p>
         <div className="flex items-center text-lg font-inter font-bold italic underline text-white">
-          <Link href="/auth/login">Login</Link>
+          <Link href="/auth/register">Register</Link>
         </div>
       </div>
 

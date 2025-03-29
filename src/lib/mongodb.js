@@ -6,18 +6,26 @@ if (!MONGODB_URI) {
   throw new Error("Harap setel MONGODB_URI di .env.local");
 }
 
-const connectDB = async () => {
-  if (mongoose.connection.readyState >= 1) return;
+let isConnected = false;
+
+const connectionToDatabase = async () => {
+  if (isConnected) {
+    console.log("Menggunakan koneksi MongoDB yang sudah ada.");
+    return;
+  }
 
   try {
-    await mongoose.connect(MONGODB_URI, {
+    const db = await mongoose.connect(MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
+
+    isConnected = db.connections[0].readyState === 1;
     console.log("MongoDB Connected");
   } catch (error) {
     console.error("MongoDB Connection Error:", error);
+    process.exit(1);
   }
 };
 
-export default connectDB;
+export default connectionToDatabase;
