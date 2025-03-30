@@ -1102,15 +1102,11 @@ __turbopack_esm__({
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/react/jsx-dev-runtime.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/react/index.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utilities$2f$groq$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/utilities/groq.js [client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/router.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ChatHeader$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/components/ChatHeader.jsx [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ChatForm$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/components/ChatForm.jsx [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ChatHistory$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/components/ChatHistory.jsx [client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/axios/lib/axios.js [client] (ecmascript)");
 ;
 var _s = __turbopack_refresh__.signature();
-;
-;
 ;
 ;
 ;
@@ -1121,45 +1117,29 @@ const AssistantAI = ()=>{
     const [input, setInput] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [chatHistory, setChatHistory] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [isLoading, setIsLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [username, setUsername] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])("");
-    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useRouter"])();
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "AssistantAI.useEffect": ()=>{
-            const fetchUserData = {
-                "AssistantAI.useEffect.fetchUserData": async ()=>{
-                    const token = localStorage.getItem("token");
-                    const storedUsername = localStorage.getItem("username");
-                    if (!token) {
-                        router.push("/login"); // Redirect jika tidak login
-                        return;
-                    }
-                    if (storedUsername) {
-                        setUsername(storedUsername);
-                    }
-                    try {
-                        const response = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].get("/api/chat/get", {
-                            headers: {
-                                Authorization: `Bearer ${token}`
-                            }
-                        });
-                        if (Array.isArray(response.data.chatHistory)) {
-                            setChatHistory(response.data.chatHistory);
-                        }
-                    } catch (error) {
-                        console.error("Failed to fetch chat history:", error);
-                    }
+            try {
+                const savedHistory = JSON.parse(localStorage.getItem("chatHistory"));
+                if (Array.isArray(savedHistory)) {
+                    setChatHistory(savedHistory);
                 }
-            }["AssistantAI.useEffect.fetchUserData"];
-            fetchUserData();
+            } catch  {
+                setChatHistory([]);
+            }
         }
     }["AssistantAI.useEffect"], []);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "AssistantAI.useEffect": ()=>{
+            if (chatHistory.length > 0) {
+                localStorage.setItem("chatHistory", JSON.stringify(chatHistory));
+            }
+        }
+    }["AssistantAI.useEffect"], [
+        chatHistory
+    ]);
     const handleSend = async ()=>{
         if (!input.trim() || input.length > 500) return;
-        const token = localStorage.getItem("token");
-        if (!token) {
-            console.error("User not authenticated");
-            return;
-        }
         const userMessage = {
             role: "user",
             content: input
@@ -1176,20 +1156,11 @@ const AssistantAI = ()=>{
                 role: "ai",
                 content: aiResponse
             };
-            await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].post("/api/chat/save", [
-                userMessage,
-                aiMessage
-            ], {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
             setChatHistory((prev)=>[
                     ...prev,
                     aiMessage
                 ]);
-        } catch (error) {
-            console.error("Error sending chat:", error);
+        } catch  {
             setChatHistory((prev)=>[
                     ...prev,
                     {
@@ -1201,23 +1172,16 @@ const AssistantAI = ()=>{
             setIsLoading(false);
         }
     };
+    const handleClearHistory = ()=>{
+        setChatHistory([]);
+        localStorage.removeItem("chatHistory");
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "w-full flex flex-col",
         children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "text-lg font-bold text-center text-white",
-                children: [
-                    "Welcome, ",
-                    username
-                ]
-            }, void 0, true, {
-                fileName: "[project]/src/components/AssistantAI.jsx",
-                lineNumber: 79,
-                columnNumber: 7
-            }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ChatHeader$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/src/components/AssistantAI.jsx",
-                lineNumber: 80,
+                lineNumber: 55,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ChatForm$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1227,29 +1191,26 @@ const AssistantAI = ()=>{
                 isLoading: isLoading
             }, void 0, false, {
                 fileName: "[project]/src/components/AssistantAI.jsx",
-                lineNumber: 81,
+                lineNumber: 56,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ChatHistory$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                 chatHistory: chatHistory,
-                isLoading: isLoading
+                isLoading: isLoading,
+                handleClearHistory: handleClearHistory
             }, void 0, false, {
                 fileName: "[project]/src/components/AssistantAI.jsx",
-                lineNumber: 82,
+                lineNumber: 57,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/AssistantAI.jsx",
-        lineNumber: 77,
+        lineNumber: 54,
         columnNumber: 5
     }, this);
 };
-_s(AssistantAI, "IEwVqx4co0LPEUFTftvEB/Bfen8=", false, function() {
-    return [
-        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useRouter"]
-    ];
-});
+_s(AssistantAI, "OEy6ZrNbIEAuT8eeQMn74d/CJt8=");
 _c = AssistantAI;
 const __TURBOPACK__default__export__ = AssistantAI;
 var _c;

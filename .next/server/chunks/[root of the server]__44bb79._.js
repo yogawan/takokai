@@ -122,27 +122,73 @@ async function handler(req, res) {
         const token = authHeader.split(" ")[1];
         const decoded = __TURBOPACK__imported__module__$5b$externals$5d2f$jsonwebtoken__$5b$external$5d$__$28$jsonwebtoken$2c$__cjs$29$__["default"].verify(token, process.env.JWT_SECRET);
         const userId = decoded.userId;
+        const { id } = req.query; // Ambil ID jika tersedia
         if (req.method === "GET") {
-            const chats = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$models$2f$Chat$2e$js__$5b$api$5d$__$28$ecmascript$29$__["default"].find({
-                userId
-            }).sort({
-                updatedAt: -1
-            });
-            return res.status(200).json(chats);
+            if (id) {
+                // GET by ID
+                const chat = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$models$2f$Chat$2e$js__$5b$api$5d$__$28$ecmascript$29$__["default"].findOne({
+                    _id: id,
+                    userId
+                });
+                if (!chat) return res.status(404).json({
+                    message: "Chat tidak ditemukan"
+                });
+                return res.status(200).json(chat);
+            } else {
+                // GET all
+                const chats = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$models$2f$Chat$2e$js__$5b$api$5d$__$28$ecmascript$29$__["default"].find({
+                    userId
+                }).sort({
+                    updatedAt: -1
+                });
+                return res.status(200).json(chats);
+            }
         }
         if (req.method === "POST") {
             const { title } = req.body;
-            if (!title) {
-                return res.status(400).json({
-                    message: "Title diperlukan"
-                });
-            }
+            if (!title) return res.status(400).json({
+                message: "Title diperlukan"
+            });
             const newChat = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$models$2f$Chat$2e$js__$5b$api$5d$__$28$ecmascript$29$__["default"].create({
                 userId,
                 title,
                 messages: []
             });
             return res.status(201).json(newChat);
+        }
+        if (req.method === "PUT") {
+            if (!id) return res.status(400).json({
+                message: "ID diperlukan"
+            });
+            const { title } = req.body;
+            const chat = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$models$2f$Chat$2e$js__$5b$api$5d$__$28$ecmascript$29$__["default"].findOneAndUpdate({
+                _id: id,
+                userId
+            }, {
+                title,
+                updatedAt: new Date()
+            }, {
+                new: true
+            });
+            if (!chat) return res.status(404).json({
+                message: "Chat tidak ditemukan"
+            });
+            return res.status(200).json(chat);
+        }
+        if (req.method === "DELETE") {
+            if (!id) return res.status(400).json({
+                message: "ID diperlukan"
+            });
+            const chat = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$models$2f$Chat$2e$js__$5b$api$5d$__$28$ecmascript$29$__["default"].findOneAndDelete({
+                _id: id,
+                userId
+            });
+            if (!chat) return res.status(404).json({
+                message: "Chat tidak ditemukan"
+            });
+            return res.status(200).json({
+                message: "Chat berhasil dihapus"
+            });
         }
         return res.status(405).json({
             message: "Method Not Allowed"

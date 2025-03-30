@@ -1,21 +1,54 @@
-import AssistantAI from "@/components/AssistantAI";
-import Sidebar from "@/components/Sidebar";
-import Head from "next/head";
+import { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
-const HomePage = () => {
+export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+  const router = useRouter();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setMessage("");
+    
+    try {
+      const response = await axios.post("/api/auth/login", { email, password });
+      setMessage(response.data.message);
+      localStorage.setItem("token", response.data.token);
+      router.push("/history");
+    } catch (error) {
+      setMessage(error.response?.data?.message || "Login gagal");
+    }
+  };
+
   return (
-    <>
-      <Head>
-        <title>JawirAI</title>
-      </Head>
-      <Sidebar/>
-      <div className="bg-black pb-[1080px] pt-[128px] flex justify-center">
-        <div className="p-3 w-full xs:w-[390px] sm:w-[610px]">
-          <AssistantAI />
+    <div>
+      <h2>Login</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Email:</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
         </div>
-      </div>
-    </>
+        <div>
+          <label>Password:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+      {message && <p>{message}</p>}
+      <Link className="text-black" href={"/auth/register"}>Register</Link>
+    </div>
   );
 }
-
-export default HomePage;

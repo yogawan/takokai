@@ -1,53 +1,67 @@
 import { useState } from "react";
-import { registerUser } from "@/utilities/api";
-import { useRouter } from "next/router";
+import axios from "axios";
+import Link from "next/link";
 
-const Register = () => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+export default function Register() {
+  const [formData, setFormData] = useState({
+    name: "",
+    username: "",
+    email: "",
+    password: "",
+  });
   const [message, setMessage] = useState("");
-  const router = useRouter();
 
-  const handleRegister = async (e) => {
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = await registerUser(username, email, password);
-    setMessage(data.message);
-    if (data.success) {
-      router.push("/auth/login");
+    setMessage("");
+    try {
+      const response = await axios.post("/api/auth/register", formData);
+      setMessage(response.data.message);
+    } catch (error) {
+      setMessage(error.response?.data?.message || "Registrasi gagal");
     }
   };
 
   return (
     <div>
       <h2>Register</h2>
-      {message && <p>{message}</p>}
-      <form onSubmit={handleRegister}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
+          name="name"
+          placeholder="Name"
+          value={formData.name}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="username"
           placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
+          value={formData.username}
+          onChange={handleChange}
         />
         <input
           type="email"
+          name="email"
           placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
+          value={formData.email}
+          onChange={handleChange}
         />
         <input
           type="password"
+          name="password"
           placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
+          value={formData.password}
+          onChange={handleChange}
         />
         <button type="submit">Register</button>
       </form>
+      {message && <p>{message}</p>}
+      <Link className="text-black" href={"/"}>Login</Link>
     </div>
   );
-};
-
-export default Register;
+}
