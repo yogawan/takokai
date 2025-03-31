@@ -27,7 +27,7 @@ const ChatDetail = () => {
   const fetchChatDetail = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get(`http://localhost:3000/api/history/${id}`, {
+      const response = await axios.get(`/api/history/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTitle(response.data.title);

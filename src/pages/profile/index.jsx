@@ -21,7 +21,7 @@ const Profile = () => {
       }
 
       try {
-        const response = await axios.get("http://localhost:3000/api/profile", {
+        const response = await axios.get("/api/profile", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
