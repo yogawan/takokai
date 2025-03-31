@@ -33,6 +33,8 @@ const Login = () => {
           alt="JawirAI Logo"
         />
 
+        <p className="text-xl text-white border-b border-white/15 pb-3 leading-1">The first Indonesian's DeepSeek. Based in Javanese island</p>
+
         {message && <p className="text-white">{message}</p>}
 
         <form className="w-full" onSubmit={handleSubmit}>
