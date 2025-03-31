@@ -54,7 +54,7 @@ const ChatDetail = () => {
 
       for (const chat of chatHistory) {
         const response = await axios.post(
-          `http://localhost:3000/api/history/${id}`,
+          `/api/history/${id}`,
           { message: { role: chat.role, content: chat.content } },
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -74,7 +74,7 @@ const ChatDetail = () => {
       const token = localStorage.getItem("token");
       if (!token) throw new Error("Token tidak ditemukan");
 
-      const response = await axios.get(`http://localhost:3000/api/history/${id}`, {
+      const response = await axios.get(`/api/history/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

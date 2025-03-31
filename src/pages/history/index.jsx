@@ -10,7 +10,7 @@ const ChatHistory = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [editingChat, setEditingChat] = useState(null);
   const [title, setTitle] = useState("");
-  const router = useRouter(); // Tambahkan router untuk navigasi
+  const router = useRouter();
 
   useEffect(() => {
     fetchChats();
@@ -41,14 +41,14 @@ const ChatHistory = () => {
       if (editingChat) {
         // Update chat
         await axios.put(
-          `http://localhost:3000/api/history?id=${editingChat._id}`,
+          `/api/history?id=${editingChat._id}`,
           { title },
           { headers: { Authorization: `Bearer ${token}` } }
         );
       } else {
         // Create chat
         await axios.post(
-          "http://localhost:3000/api/history",
+          "/api/history",
           { title },
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -64,7 +64,7 @@ const ChatHistory = () => {
   const handleDelete = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:3000/api/history?id=${id}`, {
+      await axios.delete(`/api/history?id=${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchChats();
