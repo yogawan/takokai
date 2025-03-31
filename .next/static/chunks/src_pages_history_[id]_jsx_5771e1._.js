@@ -10,7 +10,7 @@
     "static/chunks/node_modules_refractor_3cbdf1._.js",
     "static/chunks/node_modules_axios_lib_9a6fdf._.js",
     "static/chunks/node_modules_0e7db5._.js",
-    "static/chunks/[root of the server]__e2e30b._.js"
+    "static/chunks/[root of the server]__b1b99f._.js"
   ],
   "source": "entry"
 });

@@ -9,30 +9,9 @@ const Sidebar = () => {
   };
 
   const ChatHistory = [
-    { label: "What is AI? How it works?", path: "/", icon: "" },
-    { label: "DeepSeek R1 from china, what is that?", path: "/", icon: "" },
-    { label: "GPT 4o, better than DeepSeek?", path: "/", icon: "" },
-    { label: "Gemini better than GPT 4o", path: "", icon: "" },
-    { label: "What is AI? How it works?", path: "/", icon: "" },
-    { label: "DeepSeek R1 from china, what is that?", path: "/", icon: "" },
-    { label: "GPT 4o, better than DeepSeek?", path: "/", icon: "" },
-    { label: "Gemini better than GPT 4o", path: "", icon: "" },
-    { label: "What is AI? How it works?", path: "/", icon: "" },
-    { label: "DeepSeek R1 from china, what is that?", path: "/", icon: "" },
-    { label: "GPT 4o, better than DeepSeek?", path: "/", icon: "" },
-    { label: "Gemini better than GPT 4o", path: "", icon: "" },
-    { label: "What is AI? How it works?", path: "/", icon: "" },
-    { label: "DeepSeek R1 from china, what is that?", path: "/", icon: "" },
-    { label: "GPT 4o, better than DeepSeek?", path: "/", icon: "" },
-    { label: "Gemini better than GPT 4o", path: "", icon: "" },
-    { label: "What is AI? How it works?", path: "/", icon: "" },
-    { label: "DeepSeek R1 from china, what is that?", path: "/", icon: "" },
-    { label: "GPT 4o, better than DeepSeek?", path: "/", icon: "" },
-    { label: "Gemini better than GPT 4o", path: "", icon: "" },
-    { label: "What is AI? How it works?", path: "/", icon: "" },
-    { label: "DeepSeek R1 from china, what is that?", path: "/", icon: "" },
-    { label: "GPT 4o, better than DeepSeek?", path: "/", icon: "" },
-    { label: "Gemini better than GPT 4o", path: "", icon: "" },
+    { label: "yogawan", path: "/", icon: "" },
+    { label: "lootzelui", path: "/", icon: "" },
+    { label: "mikodian", path: "/", icon: "" },
   ];
 
   return (
@@ -64,10 +43,7 @@ const Sidebar = () => {
             </div>
           </button>
         </div>
-        <p className="text-white text-xs px-3 py-3 border border-white/15 rounded-full">JawirAI v2.6.1</p>
-        <div className="flex items-center text-lg font-inter font-bold italic underline text-white">
-          <Link href="/auth/register">Register</Link>
-        </div>
+        <p className="text-white text-xs px-3 py-3 border border-white/15 rounded-full">JawirAI v2.6.3</p>
       </div>
 
       <div
@@ -89,7 +65,7 @@ const Sidebar = () => {
           </div>
         </button>
         <ul className="space-y-[-12px] text-start">
-          <p className="text-3xl text-white m-3">Chat Histori</p>
+          <p className="text-3xl text-white m-3">Our Team</p>
           {ChatHistory.map((item, index) => (
             <li
               key={index}

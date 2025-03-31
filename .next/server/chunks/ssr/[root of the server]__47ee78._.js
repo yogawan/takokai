@@ -267,6 +267,7 @@ function ChatHistory() {
         setModalOpen(false);
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+        className: "bg-black pb-[1080px] p-3",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h1", {
                 children: "Chat History"
@@ -285,10 +286,21 @@ function ChatHistory() {
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("ul", {
                 children: chats.map((chat)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
+                        className: "text-white/75 pt-3 pb-3 border-b border-white/15",
                         children: [
-                            chat.title,
-                            " ",
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                                className: "text-xl pb-2",
+                                children: [
+                                    chat.title,
+                                    " "
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/pages/history/index.jsx",
+                                lineNumber: 92,
+                                columnNumber: 13
+                            }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
+                                className: "text-xs px-5 py-2 border border-white/15 rounded-full",
                                 onClick: ()=>openModal(chat),
                                 children: "Edit"
                             }, void 0, false, {
@@ -297,6 +309,7 @@ function ChatHistory() {
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
+                                className: "text-xs px-5 py-2 border border-white/15 rounded-full",
                                 onClick: ()=>handleDelete(chat._id),
                                 children: "Hapus"
                             }, void 0, false, {
@@ -305,6 +318,7 @@ function ChatHistory() {
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
+                                className: "text-xs px-5 py-2 border border-white/15 rounded-full",
                                 onClick: ()=>router.push(`/history/${chat._id}`),
                                 children: "Lihat Detail"
                             }, void 0, false, {
@@ -324,9 +338,10 @@ function ChatHistory() {
                 columnNumber: 7
             }, this),
             modalOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                className: "modal",
+                className: "fixed top-0 left-0 right-0 flex flex-col justify-center h-screen bg-black text-white",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h2", {
+                        className: "ml-5",
                         children: editingChat ? "Edit Chat" : "Tambah Chat"
                     }, void 0, false, {
                         fileName: "[project]/src/pages/history/index.jsx",
@@ -334,6 +349,7 @@ function ChatHistory() {
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
+                        className: "bg-transparent border border-white/15 p-3 m-3 rounded-xl",
                         type: "text",
                         value: title,
                         onChange: (e)=>setTitle(e.target.value),
@@ -343,20 +359,29 @@ function ChatHistory() {
                         lineNumber: 104,
                         columnNumber: 11
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
-                        onClick: handleCreateOrUpdate,
-                        children: editingChat ? "Simpan Perubahan" : "Tambah"
-                    }, void 0, false, {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                        className: "flex justify-between items-center ml-5 mr-5",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
+                                onClick: handleCreateOrUpdate,
+                                children: editingChat ? "Simpan Perubahan" : "Tambah"
+                            }, void 0, false, {
+                                fileName: "[project]/src/pages/history/index.jsx",
+                                lineNumber: 112,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
+                                onClick: closeModal,
+                                children: "Batal"
+                            }, void 0, false, {
+                                fileName: "[project]/src/pages/history/index.jsx",
+                                lineNumber: 115,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
                         fileName: "[project]/src/pages/history/index.jsx",
-                        lineNumber: 110,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
-                        onClick: closeModal,
-                        children: "Batal"
-                    }, void 0, false, {
-                        fileName: "[project]/src/pages/history/index.jsx",
-                        lineNumber: 113,
+                        lineNumber: 111,
                         columnNumber: 11
                     }, this)
                 ]

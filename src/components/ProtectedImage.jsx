@@ -12,4 +12,3 @@ const ProtectedImage = ({ src, alt, className }) => (
   );
   
 export default ProtectedImage;
-  

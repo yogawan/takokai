@@ -354,6 +354,22 @@ img, video {
   top: 1rem;
 }
 
+.bottom-5 {
+  bottom: 1.25rem;
+}
+
+.right-5 {
+  right: 1.25rem;
+}
+
+.bottom-10 {
+  bottom: 2.5rem;
+}
+
+.bottom-20 {
+  bottom: 5rem;
+}
+
 .z-50 {
   z-index: 50;
 }
@@ -364,6 +380,16 @@ img, video {
 
 .m-5 {
   margin: 1.25rem;
+}
+
+.mx-5 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+
+.mx-3 {
+  margin-left: .75rem;
+  margin-right: .75rem;
 }
 
 .mb-2 {
@@ -386,6 +412,18 @@ img, video {
   margin-left: 1.25rem;
 }
 
+.mr-3 {
+  margin-right: .75rem;
+}
+
+.mr-5 {
+  margin-right: 1.25rem;
+}
+
+.mt-2 {
+  margin-top: .5rem;
+}
+
 .mt-3 {
   margin-top: .75rem;
 }
@@ -396,6 +434,30 @@ img, video {
 
 .mt-5 {
   margin-top: 1.25rem;
+}
+
+.mr-1 {
+  margin-right: .25rem;
+}
+
+.mr-2 {
+  margin-right: .5rem;
+}
+
+.ml-3 {
+  margin-left: .75rem;
+}
+
+.ml-2 {
+  margin-left: .5rem;
+}
+
+.mt-\[128px\] {
+  margin-top: 128px;
+}
+
+.mb-1 {
+  margin-bottom: .25rem;
 }
 
 .block {
@@ -426,6 +488,10 @@ img, video {
   height: 1.25rem;
 }
 
+.h-\[16px\] {
+  height: 16px;
+}
+
 .h-screen {
   height: 100vh;
 }
@@ -446,6 +512,14 @@ img, video {
   width: 20rem;
 }
 
+.w-\[128px\] {
+  width: 128px;
+}
+
+.w-\[16px\] {
+  width: 16px;
+}
+
 .w-\[64px\] {
   width: 64px;
 }
@@ -456,6 +530,26 @@ img, video {
 
 .w-screen {
   width: 100vw;
+}
+
+.w-\[256px\] {
+  width: 256px;
+}
+
+.w-\[200px\] {
+  width: 200px;
+}
+
+.w-\[900px\] {
+  width: 900px;
+}
+
+.w-\[340px\] {
+  width: 340px;
+}
+
+.w-\[100\%\] {
+  width: 100%;
 }
 
 .max-w-md {
@@ -560,6 +654,18 @@ img, video {
   margin-bottom: calc(-12px * var(--tw-space-y-reverse));
 }
 
+.space-x-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(.75rem * var(--tw-space-x-reverse));
+  margin-left: calc(.75rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-x-1 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(.25rem * var(--tw-space-x-reverse));
+  margin-left: calc(.25rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
 .overflow-auto {
   overflow: auto;
 }
@@ -592,12 +698,21 @@ img, video {
   border-bottom-width: 1px;
 }
 
+.border-t {
+  border-top-width: 1px;
+}
+
 .border-white\/10 {
   border-color: #ffffff1a;
 }
 
 .border-white\/15 {
   border-color: #ffffff26;
+}
+
+.border-red-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(239 68 68 / var(--tw-border-opacity, 1));
 }
 
 .bg-background {
@@ -646,6 +761,14 @@ img, video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+
+.bg-black\/5 {
+  background-color: #1717170d;
+}
+
+.bg-black\/15 {
+  background-color: #17171726;
 }
 
 .bg-none {
@@ -712,6 +835,19 @@ img, video {
   padding-bottom: 1rem;
 }
 
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.pb-2 {
+  padding-bottom: .5rem;
+}
+
+.pb-3 {
+  padding-bottom: .75rem;
+}
+
 .pb-5 {
   padding-bottom: 1.25rem;
 }
@@ -740,8 +876,28 @@ img, video {
   padding-top: 2.5rem;
 }
 
+.pt-3 {
+  padding-top: .75rem;
+}
+
 .pt-\[128px\] {
   padding-top: 128px;
+}
+
+.pl-3 {
+  padding-left: .75rem;
+}
+
+.pt-\[64px\] {
+  padding-top: 64px;
+}
+
+.pt-\[96px\] {
+  padding-top: 96px;
+}
+
+.pb-4 {
+  padding-bottom: 1rem;
 }
 
 .text-left {
@@ -781,6 +937,11 @@ img, video {
   line-height: 1rem;
 }
 
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -809,9 +970,8 @@ img, video {
   line-height: 120%;
 }
 
-.text-black {
-  --tw-text-opacity: 1;
-  color: rgb(23 23 23 / var(--tw-text-opacity, 1));
+.leading-none {
+  line-height: 1;
 }
 
 .text-blue-500 {
@@ -840,6 +1000,20 @@ img, video {
 
 .text-white\/75 {
   color: #ffffffbf;
+}
+
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(23 23 23 / var(--tw-text-opacity, 1));
+}
+
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity, 1));
+}
+
+.text-white\/35 {
+  color: #ffffff59;
 }
 
 .underline {
@@ -969,6 +1143,10 @@ body {
 }
 
 @media (width >= 400px) {
+  .xs\:w-\[340px\] {
+    width: 340px;
+  }
+
   .xs\:w-\[390px\] {
     width: 390px;
   }
@@ -977,6 +1155,14 @@ body {
 @media (width >= 640px) {
   .sm\:w-\[610px\] {
     width: 610px;
+  }
+
+  .sm\:w-\[400px\] {
+    width: 400px;
+  }
+
+  .sm\:w-\[390px\] {
+    width: 390px;
   }
 }
 

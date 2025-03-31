@@ -592,93 +592,102 @@ function Register() {
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                children: "Register"
-            }, void 0, false, {
-                fileName: "[project]/src/pages/auth/register/index.jsx",
-                lineNumber: 31,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
-                onSubmit: handleSubmit,
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                        type: "text",
-                        name: "name",
-                        placeholder: "Name",
-                        value: formData.name,
-                        onChange: handleChange
-                    }, void 0, false, {
-                        fileName: "[project]/src/pages/auth/register/index.jsx",
-                        lineNumber: 33,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                        type: "text",
-                        name: "username",
-                        placeholder: "Username",
-                        value: formData.username,
-                        onChange: handleChange
-                    }, void 0, false, {
-                        fileName: "[project]/src/pages/auth/register/index.jsx",
-                        lineNumber: 40,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                        type: "email",
-                        name: "email",
-                        placeholder: "Email",
-                        value: formData.email,
-                        onChange: handleChange
-                    }, void 0, false, {
-                        fileName: "[project]/src/pages/auth/register/index.jsx",
-                        lineNumber: 47,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                        type: "password",
-                        name: "password",
-                        placeholder: "Password",
-                        value: formData.password,
-                        onChange: handleChange
-                    }, void 0, false, {
-                        fileName: "[project]/src/pages/auth/register/index.jsx",
-                        lineNumber: 54,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        type: "submit",
-                        children: "Register"
-                    }, void 0, false, {
-                        fileName: "[project]/src/pages/auth/register/index.jsx",
-                        lineNumber: 61,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/src/pages/auth/register/index.jsx",
-                lineNumber: 32,
-                columnNumber: 7
-            }, this),
-            message && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                children: message
-            }, void 0, false, {
-                fileName: "[project]/src/pages/auth/register/index.jsx",
-                lineNumber: 63,
-                columnNumber: 19
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                className: "text-black",
-                href: "/",
-                children: "Login"
-            }, void 0, false, {
-                fileName: "[project]/src/pages/auth/register/index.jsx",
-                lineNumber: 64,
-                columnNumber: 7
-            }, this)
-        ]
-    }, void 0, true, {
+        className: "bg-black h-screen flex justify-center items-center",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "w-full xs:w-[340px] p-3",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ProtectedImage, {
+                    src: "./branding/logo.png",
+                    className: "w-[200px] mb-5"
+                }, void 0, false, {
+                    fileName: "[project]/src/pages/auth/register/index.jsx",
+                    lineNumber: 32,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
+                    onSubmit: handleSubmit,
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                            type: "text",
+                            name: "name",
+                            placeholder: "Name",
+                            value: formData.name,
+                            onChange: handleChange
+                        }, void 0, false, {
+                            fileName: "[project]/src/pages/auth/register/index.jsx",
+                            lineNumber: 37,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                            type: "text",
+                            name: "username",
+                            placeholder: "Username",
+                            value: formData.username,
+                            onChange: handleChange
+                        }, void 0, false, {
+                            fileName: "[project]/src/pages/auth/register/index.jsx",
+                            lineNumber: 44,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                            type: "email",
+                            name: "email",
+                            placeholder: "Email",
+                            value: formData.email,
+                            onChange: handleChange
+                        }, void 0, false, {
+                            fileName: "[project]/src/pages/auth/register/index.jsx",
+                            lineNumber: 51,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                            type: "password",
+                            name: "password",
+                            placeholder: "Password",
+                            value: formData.password,
+                            onChange: handleChange
+                        }, void 0, false, {
+                            fileName: "[project]/src/pages/auth/register/index.jsx",
+                            lineNumber: 58,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            type: "submit",
+                            children: "Register"
+                        }, void 0, false, {
+                            fileName: "[project]/src/pages/auth/register/index.jsx",
+                            lineNumber: 65,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/pages/auth/register/index.jsx",
+                    lineNumber: 36,
+                    columnNumber: 9
+                }, this),
+                message && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                    children: message
+                }, void 0, false, {
+                    fileName: "[project]/src/pages/auth/register/index.jsx",
+                    lineNumber: 67,
+                    columnNumber: 21
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                    className: "text-black",
+                    href: "/",
+                    children: "Login"
+                }, void 0, false, {
+                    fileName: "[project]/src/pages/auth/register/index.jsx",
+                    lineNumber: 68,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "[project]/src/pages/auth/register/index.jsx",
+            lineNumber: 31,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
         fileName: "[project]/src/pages/auth/register/index.jsx",
         lineNumber: 30,
         columnNumber: 5

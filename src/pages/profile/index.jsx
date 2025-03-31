@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
+import Navbar from "@/components/Navbar";
+import Sidebar from "@/components/Sidebar";
+import ProtectedImage from "@/components/ProtectedImage";
+import { Icon } from "@iconify/react";
 
 const Profile = () => {
   const router = useRouter();
@@ -37,25 +41,44 @@ const Profile = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white">
-      <h1 className="text-3xl font-bold mb-4">User Profile</h1>
+    <div className="bg-black">
+      <Sidebar />
+      <Navbar />
+      <div className="bg-black h-screen flex justify-center items-center">
+        <div>
+          <ProtectedImage
+            src="/branding/logo.png"
+            className="w-[128px] ml-5 mb-5"
+            alt="JawirAI Logo"
+          />
 
-      {error ? (
-        <p className="text-red-400">{error}</p>
-      ) : user ? (
-        <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-80 text-center">
-          <p className="text-xl font-semibold">{user.name}</p>
-          <p className="text-gray-400">{user.email}</p>
-          <button
-            className="mt-4 bg-red-500 px-4 py-2 rounded hover:bg-red-600"
-            onClick={handleLogout}
-          >
-            Logout
-          </button>
+          <h1 className="text-white text-3xl ml-5 mb-3">User Profile</h1>
+
+          {error ? (
+            <p className="text-red-500">{error}</p>
+          ) : user ? (
+            <div className="p-5 w-[340px] xs:w-[390px] border border-white/15 rounded-3xl">
+              <div className="flex items-center">
+                <Icon className="text-white" icon="gg:profile" width="16" height="16" />
+                <p className="ml-2 text-white/35 text-xs">{user.name}</p>
+              </div>
+
+              <div className="flex items-center mt-2">
+                <Icon className="text-white" icon="ic:baseline-email" width="16" height="16" />
+                <p className="ml-2 text-white/35 text-xs">{user.email}</p><br />
+              </div>
+              <button
+                className="p-3 mt-5 bg-red-500 rounded-full text-white/75 text-xs"
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <p>Loading...</p>
+          )}
         </div>
-      ) : (
-        <p>Loading...</p>
-      )}
+      </div>
     </div>
   );
 };

@@ -6,6 +6,8 @@ import ChatHeader from "@/components/ChatHeader";
 import ChatForm from "@/components/ChatForm";
 import ChatHistory from "@/components/ChatHistory";
 import Link from "next/link";
+import Sidebar from "@/components/Sidebar";
+import { Icon } from "@iconify/react";
 
 const ChatDetail = () => {
   const router = useRouter();
@@ -130,19 +132,38 @@ const ChatDetail = () => {
 
   return (
     <div className="bg-black w-full flex flex-col">
-      <div className="bg-black pb-[1080px] pt-[128px] flex justify-center">
+      <Sidebar />
+      <nav className="fixed bottom-5 left-0 right-0 flex justify-center">
+          <ul className="bg-black/5 backdrop-blur flex p-3 border border-white/15 rounded-full">
+              <li className="m-3">
+                  <Link className="flex items-center text-white text-xs" href="/history">
+                      <Icon className="text-white mr-2" icon="material-symbols:history" width="24" height="24" />
+                      History
+                  </Link>
+              </li>
+              <li className="m-3">
+                  <Link className="flex items-center text-white text-xs" href={`/history/${id}`}>
+                      <Icon className="text-white mr-2" icon="ri:chat-ai-fill" width="24" height="24" />
+                      Chat
+                  </Link>
+              </li>
+          </ul>
+      </nav>
+      <div className="bg-black pb-[1080px] pt-[96px] flex justify-center">
         <div className="p-3 w-full xs:w-[390px] sm:w-[610px]">
+          <h1 className="text-white text-3xl leading-none font-bold text-center mt-5 mb-3 pb-5 border-b border-white/15">{title || "Loading..."}</h1>
+          <div className="flex justify-end">
+            <Link className="text-xs text-black p-3 bg-white rounded-full" href={"/history"}>Back</Link>
+          </div>
           <ChatHeader />
-          <h1 className="text-white text-xl font-bold text-center mt-4">{title || "Loading..."}</h1>
-          <Link className="text-white" href={"/history"}>Back</Link>
           <ChatForm input={input} setInput={setInput} handleSend={handleSend} isLoading={isLoading} />
           <ChatHistory chatHistory={chatHistory} isLoading={isLoading} handleClearHistory={handleClearHistory} />
-          <div className="flex justify-center space-x-4 mt-4">
-            <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={syncChatHistoryToServer}>
-              Sync Chat to Server
+          <div className="flex justify-center space-x-1 mt-4">
+            <button className="bg-white p-3 rounded-full" onClick={syncChatHistoryToServer}>
+              Sync
             </button>
-            <button className="bg-green-500 text-white px-4 py-2 rounded" onClick={restoreChatHistoryFromServer}>
-              Load Chat dari Server
+            <button className="border border-white/15 text-white p-3 rounded-full" onClick={restoreChatHistoryFromServer}>
+              Restore
             </button>
           </div>
         </div>

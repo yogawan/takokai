@@ -14,7 +14,6 @@ const ChatSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// Cek apakah model sudah ada sebelum mendefinisikannya lagi
 const Chat = mongoose.models.Chat || mongoose.model("Chat", ChatSchema);
 
 export default Chat;
