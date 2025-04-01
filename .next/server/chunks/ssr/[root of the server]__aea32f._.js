@@ -495,14 +495,14 @@ const ChatHistory = ()=>{
     const [modalOpen, setModalOpen] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(false);
     const [editingChat, setEditingChat] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(null);
     const [title, setTitle] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])("");
-    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["useRouter"])(); // Tambahkan router untuk navigasi
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useEffect"])(()=>{
         fetchChats();
     }, []);
     const fetchChats = async ()=>{
         try {
             const token = localStorage.getItem("token");
-            const response = await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].get("http://localhost:3000/api/history", {
+            const response = await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].get("/api/history", {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -522,7 +522,7 @@ const ChatHistory = ()=>{
             }
             if (editingChat) {
                 // Update chat
-                await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].put(`http://localhost:3000/api/history?id=${editingChat._id}`, {
+                await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].put(`/api/history?id=${editingChat._id}`, {
                     title
                 }, {
                     headers: {
@@ -531,7 +531,7 @@ const ChatHistory = ()=>{
                 });
             } else {
                 // Create chat
-                await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].post("http://localhost:3000/api/history", {
+                await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].post("/api/history", {
                     title
                 }, {
                     headers: {
@@ -548,7 +548,7 @@ const ChatHistory = ()=>{
     const handleDelete = async (id)=>{
         try {
             const token = localStorage.getItem("token");
-            await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].delete(`http://localhost:3000/api/history?id=${id}`, {
+            await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].delete(`/api/history?id=${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

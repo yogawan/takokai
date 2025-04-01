@@ -33,9 +33,13 @@ const Register = () => {
         
         <ProtectedImage
           src="/branding/logo.png"
-          className="w-[128px] mb-5"
+          className="w-[128px] mb-5 ml-2"
           alt="JawirAI Logo"
         />
+
+        <p className="text-xl text-white mb-5 ml-2 leading-1">
+          The first Indonesian's DeepSeek. Based in Javanese island
+        </p>
 
         {message && <p className="text-white">{message}</p>}
 
@@ -96,37 +100,22 @@ const Register = () => {
           <Link className="text-white text-xs" href={"/"}>Sudah Punya Akun?</Link>
         </div>
 
-        <hr className="mt-2 border-t border-white/15" />
+        {/* <hr className="mt-2 border-t border-white/15" />
 
-        <div className="mt-3 flex justify-center items-center border border-white/15 p-3 rounded-full">
-          <ProtectedImage
-            src="/assets/google.png"
-            className="w-[16px] h-[16px] mr-3"
-          />
-          <p className="text-white/75 text-xs">
-            Register with Google (Coming Soon)
-          </p>
+        <div className="mt-3 flex justify-center items-center border border-white/15 p-4 rounded-full">
+          <ProtectedImage src="/assets/google.png" className="w-[16px] h-[16px] mr-3" />
+          <p className="text-white/75 text-xs">Google (Disable)</p>
         </div>
 
-        <div className="mt-3 flex justify-center items-center border border-white/15 p-3 rounded-full">
-          <ProtectedImage
-            src="/assets/facebook.png"
-            className="w-[16px] h-[16px] mr-3"
-          />
-          <p className="text-white/75 text-xs">
-            Register with Facebook (Coming Soon)
-          </p>
+        <div className="mt-3 flex justify-center items-center border border-white/15 p-4 rounded-full">
+          <ProtectedImage src="/assets/facebook.png" className="w-[16px] h-[16px] mr-3" />
+          <p className="text-white/75 text-xs">Facebook (Disable)</p>
         </div>
 
-        <div className="mt-3 flex justify-center items-center border border-white/15 p-3 rounded-full">
-          <ProtectedImage
-            src="/assets/x.png"
-            className="w-[16px] h-[16px] mr-3"
-          />
-          <p className="text-white/75 text-xs">
-            Register with X (Coming Soon)
-          </p>
-        </div>
+        <div className="mt-3 flex justify-center items-center border border-white/15 p-4 rounded-full">
+          <ProtectedImage src="/assets/x.png" className="w-[16px] h-[16px] mr-3" />
+          <p className="text-white/75 text-xs">X (Disable)</p>
+        </div> */}
 
       </div>
     </div>

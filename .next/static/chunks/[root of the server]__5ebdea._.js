@@ -650,11 +650,19 @@ const Register = ()=>{
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProtectedImage$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                     src: "/branding/logo.png",
-                    className: "w-[128px] mb-5",
+                    className: "w-[128px] mb-5 ml-2",
                     alt: "JawirAI Logo"
                 }, void 0, false, {
                     fileName: "[project]/src/pages/auth/register/index.jsx",
                     lineNumber: 34,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                    className: "text-xl text-white mb-5 ml-2 leading-1",
+                    children: "The first Indonesian's DeepSeek. Based in Javanese island"
+                }, void 0, false, {
+                    fileName: "[project]/src/pages/auth/register/index.jsx",
+                    lineNumber: 40,
                     columnNumber: 9
                 }, this),
                 message && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -662,7 +670,7 @@ const Register = ()=>{
                     children: message
                 }, void 0, false, {
                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                    lineNumber: 40,
+                    lineNumber: 44,
                     columnNumber: 21
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -676,12 +684,12 @@ const Register = ()=>{
                                     children: "Name"
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                                    lineNumber: 45,
+                                    lineNumber: 49,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                                    lineNumber: 45,
+                                    lineNumber: 49,
                                     columnNumber: 58
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -693,13 +701,13 @@ const Register = ()=>{
                                     onChange: handleChange
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                                    lineNumber: 46,
+                                    lineNumber: 50,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/pages/auth/register/index.jsx",
-                            lineNumber: 44,
+                            lineNumber: 48,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -710,12 +718,12 @@ const Register = ()=>{
                                     children: "Username"
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                                    lineNumber: 57,
+                                    lineNumber: 61,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                                    lineNumber: 57,
+                                    lineNumber: 61,
                                     columnNumber: 62
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -727,13 +735,13 @@ const Register = ()=>{
                                     onChange: handleChange
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                                    lineNumber: 58,
+                                    lineNumber: 62,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/pages/auth/register/index.jsx",
-                            lineNumber: 56,
+                            lineNumber: 60,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -744,12 +752,12 @@ const Register = ()=>{
                                     children: "Email"
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                                    lineNumber: 69,
+                                    lineNumber: 73,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                                    lineNumber: 69,
+                                    lineNumber: 73,
                                     columnNumber: 59
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -761,13 +769,13 @@ const Register = ()=>{
                                     onChange: handleChange
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                                    lineNumber: 70,
+                                    lineNumber: 74,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/pages/auth/register/index.jsx",
-                            lineNumber: 68,
+                            lineNumber: 72,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -778,12 +786,12 @@ const Register = ()=>{
                                     children: "Password"
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                                    lineNumber: 81,
+                                    lineNumber: 85,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                                    lineNumber: 81,
+                                    lineNumber: 85,
                                     columnNumber: 62
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -795,13 +803,13 @@ const Register = ()=>{
                                     onChange: handleChange
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                                    lineNumber: 82,
+                                    lineNumber: 86,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/pages/auth/register/index.jsx",
-                            lineNumber: 80,
+                            lineNumber: 84,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -810,13 +818,13 @@ const Register = ()=>{
                             children: "Register"
                         }, void 0, false, {
                             fileName: "[project]/src/pages/auth/register/index.jsx",
-                            lineNumber: 92,
+                            lineNumber: 96,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                    lineNumber: 42,
+                    lineNumber: 46,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -827,94 +835,12 @@ const Register = ()=>{
                         children: "Sudah Punya Akun?"
                     }, void 0, false, {
                         fileName: "[project]/src/pages/auth/register/index.jsx",
-                        lineNumber: 96,
+                        lineNumber: 100,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                    lineNumber: 95,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
-                    className: "mt-2 border-t border-white/15"
-                }, void 0, false, {
-                    fileName: "[project]/src/pages/auth/register/index.jsx",
                     lineNumber: 99,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "mt-3 flex justify-center items-center border border-white/15 p-3 rounded-full",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProtectedImage$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                            src: "/assets/google.png",
-                            className: "w-[16px] h-[16px] mr-3"
-                        }, void 0, false, {
-                            fileName: "[project]/src/pages/auth/register/index.jsx",
-                            lineNumber: 102,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-white/75 text-xs",
-                            children: "Register with Google (Coming Soon)"
-                        }, void 0, false, {
-                            fileName: "[project]/src/pages/auth/register/index.jsx",
-                            lineNumber: 106,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/src/pages/auth/register/index.jsx",
-                    lineNumber: 101,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "mt-3 flex justify-center items-center border border-white/15 p-3 rounded-full",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProtectedImage$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                            src: "/assets/facebook.png",
-                            className: "w-[16px] h-[16px] mr-3"
-                        }, void 0, false, {
-                            fileName: "[project]/src/pages/auth/register/index.jsx",
-                            lineNumber: 112,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-white/75 text-xs",
-                            children: "Register with Facebook (Coming Soon)"
-                        }, void 0, false, {
-                            fileName: "[project]/src/pages/auth/register/index.jsx",
-                            lineNumber: 116,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/src/pages/auth/register/index.jsx",
-                    lineNumber: 111,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "mt-3 flex justify-center items-center border border-white/15 p-3 rounded-full",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProtectedImage$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                            src: "/assets/x.png",
-                            className: "w-[16px] h-[16px] mr-3"
-                        }, void 0, false, {
-                            fileName: "[project]/src/pages/auth/register/index.jsx",
-                            lineNumber: 122,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-white/75 text-xs",
-                            children: "Register with X (Coming Soon)"
-                        }, void 0, false, {
-                            fileName: "[project]/src/pages/auth/register/index.jsx",
-                            lineNumber: 126,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/src/pages/auth/register/index.jsx",
-                    lineNumber: 121,
                     columnNumber: 9
                 }, this)
             ]

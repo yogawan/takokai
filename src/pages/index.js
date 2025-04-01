@@ -43,11 +43,11 @@ const Login = () => {
       <div className="w-full xs:w-[340px] p-3">
         <ProtectedImage
           src="/branding/logo.png"
-          className="w-[128px] mb-5"
+          className="w-[128px] mb-5 ml-2"
           alt="JawirAI Logo"
         />
 
-        <p className="text-xl text-white border-b border-white/15 pb-3 leading-1">
+        <p className="text-xl text-white mb-5 ml-2 leading-1">
           The first Indonesian's DeepSeek. Based in Javanese island
         </p>
 
@@ -93,19 +93,19 @@ const Login = () => {
 
         <hr className="mt-2 border-t border-white/15" />
 
-        <div className="mt-3 flex justify-center items-center border border-white/15 p-3 rounded-full">
+        <div className="mt-3 flex justify-center items-center border border-white/15 p-4 rounded-full">
           <ProtectedImage src="/assets/google.png" className="w-[16px] h-[16px] mr-3" />
-          <p className="text-white/75 text-xs">Login with Google (Coming Soon)</p>
+          <p className="text-white/75 text-xs">Google (Disable)</p>
         </div>
 
-        <div className="mt-3 flex justify-center items-center border border-white/15 p-3 rounded-full">
+        <div className="mt-3 flex justify-center items-center border border-white/15 p-4 rounded-full">
           <ProtectedImage src="/assets/facebook.png" className="w-[16px] h-[16px] mr-3" />
-          <p className="text-white/75 text-xs">Login with Facebook (Coming Soon)</p>
+          <p className="text-white/75 text-xs">Facebook (Disable)</p>
         </div>
 
-        <div className="mt-3 flex justify-center items-center border border-white/15 p-3 rounded-full">
+        <div className="mt-3 flex justify-center items-center border border-white/15 p-4 rounded-full">
           <ProtectedImage src="/assets/x.png" className="w-[16px] h-[16px] mr-3" />
-          <p className="text-white/75 text-xs">Login with X (Coming Soon)</p>
+          <p className="text-white/75 text-xs">X (Disable)</p>
         </div>
       </div>
     </div>

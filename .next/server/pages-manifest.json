@@ -1,9 +1,13 @@
 {
+  "/api/profile": "pages/api/profile.js",
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
-  "/auth/register": "pages/auth/register.js",
-  "/": "pages/index.js",
-  "/api/auth/login": "pages/api/auth/login.js",
+  "/profile": "pages/profile.js",
   "/history": "pages/history.js",
-  "/api/history": "pages/api/history.js"
+  "/api/history": "pages/api/history.js",
+  "/history/[id]": "pages/history/[id].js",
+  "/api/history/[id]": "pages/api/history/[id].js",
+  "/": "pages/index.js",
+  "/auth/register": "pages/auth/register.js",
+  "/api/auth/login": "pages/api/auth/login.js"
 }

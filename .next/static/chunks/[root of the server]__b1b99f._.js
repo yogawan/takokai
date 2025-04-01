@@ -797,7 +797,6 @@ const dracula = __turbopack_require__("[project]/node_modules/react-syntax-highl
 const CodeBlock = ({ content })=>{
     _s();
     const [copiedIndex, setCopiedIndex] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    // ✅ Pisahkan blok kode dan teks biasa dengan regex yang lebih aman
     const parts = content.split(/(```[\s\S]*?```)/g);
     const handleCopyCode = (code, index)=>{
         navigator.clipboard.writeText(code);
@@ -818,7 +817,7 @@ const CodeBlock = ({ content })=>{
                         children: copiedIndex === index ? "Copied!" : "Copy"
                     }, void 0, false, {
                         fileName: "[project]/src/components/CodeBlock.jsx",
-                        lineNumber: 26,
+                        lineNumber: 24,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$syntax$2d$highlighter$2f$dist$2f$esm$2f$prism$2e$js__$5b$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Prism$3e$__["Prism"], {
@@ -828,13 +827,13 @@ const CodeBlock = ({ content })=>{
                         children: code
                     }, void 0, false, {
                         fileName: "[project]/src/components/CodeBlock.jsx",
-                        lineNumber: 34,
+                        lineNumber: 31,
                         columnNumber: 11
                     }, this)
                 ]
             }, index, true, {
                 fileName: "[project]/src/components/CodeBlock.jsx",
-                lineNumber: 24,
+                lineNumber: 23,
                 columnNumber: 9
             }, this);
         }
@@ -842,23 +841,18 @@ const CodeBlock = ({ content })=>{
             text: part
         }, index, false, {
             fileName: "[project]/src/components/CodeBlock.jsx",
-            lineNumber: 41,
+            lineNumber: 38,
             columnNumber: 12
         }, this);
     });
 };
 _s(CodeBlock, "vmguM15Tqrzn4pZ8KoXNjtu9s9w=");
 _c = CodeBlock;
-// ✅ Komponen untuk memformat teks biasa dengan Markdown support
 const FormattedText = ({ text })=>{
     return text.split("\n").map((line, index)=>{
-        // **Bold Text**
         line = line.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
-        // *Italic Text*
         line = line.replace(/\*(.*?)\*/g, "<em>$1</em>");
-        // [Link](https://example.com)
         line = line.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-blue-500 underline">$1</a>');
-        // ✅ Bullet List
         if (/^\s*-\s/.test(line)) {
             return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
                 className: "list-disc ml-5",
@@ -868,12 +862,12 @@ const FormattedText = ({ text })=>{
                     }
                 }, void 0, false, {
                     fileName: "[project]/src/components/CodeBlock.jsx",
-                    lineNumber: 61,
+                    lineNumber: 53,
                     columnNumber: 11
                 }, this)
             }, index, false, {
                 fileName: "[project]/src/components/CodeBlock.jsx",
-                lineNumber: 60,
+                lineNumber: 52,
                 columnNumber: 9
             }, this);
         }
@@ -884,7 +878,7 @@ const FormattedText = ({ text })=>{
             className: "mb-2"
         }, index, false, {
             fileName: "[project]/src/components/CodeBlock.jsx",
-            lineNumber: 66,
+            lineNumber: 58,
             columnNumber: 12
         }, this);
     });
@@ -1328,6 +1322,8 @@ const ChatDetail = ()=>{
     const [chatHistory, setChatHistory] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [input, setInput] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [isLoading, setIsLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [isSyncing, setIsSyncing] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [isRestoring, setIsRestoring] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(false);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "ChatDetail.useEffect": ()=>{
             if (id) {
@@ -1341,7 +1337,7 @@ const ChatDetail = ()=>{
     const fetchChatDetail = async ()=>{
         try {
             const token = localStorage.getItem("token");
-            const response = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].get(`http://localhost:3000/api/history/${id}`, {
+            const response = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].get(`/api/history/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -1361,11 +1357,12 @@ const ChatDetail = ()=>{
     };
     const syncChatHistoryToServer = async ()=>{
         if (!id) return console.error("ID tidak ditemukan, tidak bisa sync chat.");
+        setIsSyncing(true);
         try {
             const token = localStorage.getItem("token");
             if (!token) throw new Error("Token tidak ditemukan");
             for (const chat of chatHistory){
-                const response = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].post(`http://localhost:3000/api/history/${id}`, {
+                await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].post(`/api/history/${id}`, {
                     message: {
                         role: chat.role,
                         content: chat.content
@@ -1375,19 +1372,21 @@ const ChatDetail = ()=>{
                         Authorization: `Bearer ${token}`
                     }
                 });
-                console.log("Response dari server:", response.data);
             }
             console.log("Chat history berhasil dikirim ke server!");
         } catch (error) {
             console.error("Error syncing chat history:", error.response?.data || error.message);
+        } finally{
+            setIsSyncing(false);
         }
     };
     const restoreChatHistoryFromServer = async ()=>{
         if (!id) return console.error("ID tidak ditemukan, tidak bisa mengambil chat.");
+        setIsRestoring(true);
         try {
             const token = localStorage.getItem("token");
             if (!token) throw new Error("Token tidak ditemukan");
-            const response = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].get(`http://localhost:3000/api/history/${id}`, {
+            const response = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].get(`/api/history/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -1401,6 +1400,8 @@ const ChatDetail = ()=>{
             console.log("Chat history berhasil dikembalikan dari server!");
         } catch (error) {
             console.error("Error restoring chat history:", error.response?.data || error.message);
+        } finally{
+            setIsRestoring(false);
         }
     };
     const handleSend = async ()=>{
@@ -1458,7 +1459,7 @@ const ChatDetail = ()=>{
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Sidebar$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/src/pages/history/[id].jsx",
-                lineNumber: 135,
+                lineNumber: 147,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
@@ -1479,19 +1480,19 @@ const ChatDetail = ()=>{
                                         height: "24"
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/history/[id].jsx",
-                                        lineNumber: 140,
+                                        lineNumber: 152,
                                         columnNumber: 23
                                     }, this),
                                     "History"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/pages/history/[id].jsx",
-                                lineNumber: 139,
+                                lineNumber: 151,
                                 columnNumber: 19
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/pages/history/[id].jsx",
-                            lineNumber: 138,
+                            lineNumber: 150,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -1507,30 +1508,30 @@ const ChatDetail = ()=>{
                                         height: "24"
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/history/[id].jsx",
-                                        lineNumber: 146,
+                                        lineNumber: 158,
                                         columnNumber: 23
                                     }, this),
                                     "Chat"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/pages/history/[id].jsx",
-                                lineNumber: 145,
+                                lineNumber: 157,
                                 columnNumber: 19
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/pages/history/[id].jsx",
-                            lineNumber: 144,
+                            lineNumber: 156,
                             columnNumber: 15
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/pages/history/[id].jsx",
-                    lineNumber: 137,
+                    lineNumber: 149,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/pages/history/[id].jsx",
-                lineNumber: 136,
+                lineNumber: 148,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1543,7 +1544,7 @@ const ChatDetail = ()=>{
                             children: title || "Loading..."
                         }, void 0, false, {
                             fileName: "[project]/src/pages/history/[id].jsx",
-                            lineNumber: 154,
+                            lineNumber: 166,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1554,17 +1555,17 @@ const ChatDetail = ()=>{
                                 children: "Back"
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/history/[id].jsx",
-                                lineNumber: 156,
+                                lineNumber: 168,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/pages/history/[id].jsx",
-                            lineNumber: 155,
+                            lineNumber: 167,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ChatHeader$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                             fileName: "[project]/src/pages/history/[id].jsx",
-                            lineNumber: 158,
+                            lineNumber: 170,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ChatForm$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1574,7 +1575,7 @@ const ChatDetail = ()=>{
                             isLoading: isLoading
                         }, void 0, false, {
                             fileName: "[project]/src/pages/history/[id].jsx",
-                            lineNumber: 159,
+                            lineNumber: 171,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ChatHistory$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1583,55 +1584,123 @@ const ChatDetail = ()=>{
                             handleClearHistory: handleClearHistory
                         }, void 0, false, {
                             fileName: "[project]/src/pages/history/[id].jsx",
-                            lineNumber: 160,
+                            lineNumber: 172,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "flex justify-center space-x-1 mt-4",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    className: "bg-white p-3 rounded-full",
                                     onClick: syncChatHistoryToServer,
-                                    children: "Sync"
-                                }, void 0, false, {
+                                    className: "bg-blue-500 text-white px-4 py-2 rounded-full flex items-center",
+                                    disabled: isSyncing,
+                                    children: [
+                                        isSyncing ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "animate-spin mr-2",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$iconify$2f$react$2f$dist$2f$iconify$2e$js__$5b$client$5d$__$28$ecmascript$29$__["Icon"], {
+                                                icon: "line-md:loading-loop",
+                                                width: "20",
+                                                height: "20"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/pages/history/[id].jsx",
+                                                lineNumber: 181,
+                                                columnNumber: 19
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/pages/history/[id].jsx",
+                                            lineNumber: 180,
+                                            columnNumber: 17
+                                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "mr-2",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$iconify$2f$react$2f$dist$2f$iconify$2e$js__$5b$client$5d$__$28$ecmascript$29$__["Icon"], {
+                                                icon: "mdi:cloud-upload-outline",
+                                                width: "20",
+                                                height: "20"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/pages/history/[id].jsx",
+                                                lineNumber: 185,
+                                                columnNumber: 19
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/pages/history/[id].jsx",
+                                            lineNumber: 184,
+                                            columnNumber: 17
+                                        }, this),
+                                        "Sync"
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/src/pages/history/[id].jsx",
-                                    lineNumber: 162,
+                                    lineNumber: 174,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    className: "border border-white/15 text-white p-3 rounded-full",
                                     onClick: restoreChatHistoryFromServer,
-                                    children: "Restore"
-                                }, void 0, false, {
+                                    className: "bg-green-500 text-white px-4 py-2 rounded-full flex items-center",
+                                    disabled: isRestoring,
+                                    children: [
+                                        isRestoring ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "animate-spin mr-2",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$iconify$2f$react$2f$dist$2f$iconify$2e$js__$5b$client$5d$__$28$ecmascript$29$__["Icon"], {
+                                                icon: "line-md:loading-loop",
+                                                width: "20",
+                                                height: "20"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/pages/history/[id].jsx",
+                                                lineNumber: 198,
+                                                columnNumber: 19
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/pages/history/[id].jsx",
+                                            lineNumber: 197,
+                                            columnNumber: 17
+                                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "mr-2",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$iconify$2f$react$2f$dist$2f$iconify$2e$js__$5b$client$5d$__$28$ecmascript$29$__["Icon"], {
+                                                icon: "mdi:cloud-download-outline",
+                                                width: "20",
+                                                height: "20"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/pages/history/[id].jsx",
+                                                lineNumber: 202,
+                                                columnNumber: 19
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/pages/history/[id].jsx",
+                                            lineNumber: 201,
+                                            columnNumber: 17
+                                        }, this),
+                                        "Restore"
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/src/pages/history/[id].jsx",
-                                    lineNumber: 165,
+                                    lineNumber: 191,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/pages/history/[id].jsx",
-                            lineNumber: 161,
+                            lineNumber: 173,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/pages/history/[id].jsx",
-                    lineNumber: 153,
+                    lineNumber: 165,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/pages/history/[id].jsx",
-                lineNumber: 152,
+                lineNumber: 164,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/pages/history/[id].jsx",
-        lineNumber: 134,
+        lineNumber: 146,
         columnNumber: 5
     }, this);
 };
-_s(ChatDetail, "wRQ0vgTZYyAImnLRJRRZchKeBMY=", false, function() {
+_s(ChatDetail, "XwtYcqVBxQt354iSff3CERv9vqE=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useRouter"]
     ];

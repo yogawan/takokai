@@ -84,7 +84,6 @@ const ChatSchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongoos
 }, {
     timestamps: true
 });
-// Cek apakah model sudah ada sebelum mendefinisikannya lagi
 const Chat = __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].models.Chat || __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].model("Chat", ChatSchema);
 const __TURBOPACK__default__export__ = Chat;
 }}),

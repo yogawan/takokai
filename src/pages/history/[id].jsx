@@ -16,6 +16,9 @@ const ChatDetail = () => {
   const [chatHistory, setChatHistory] = useState([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isSyncing, setIsSyncing] = useState(false);
+  const [isRestoring, setIsRestoring] = useState(false);
+
 
   useEffect(() => {
     if (id) {
@@ -47,49 +50,58 @@ const ChatDetail = () => {
 
   const syncChatHistoryToServer = async () => {
     if (!id) return console.error("ID tidak ditemukan, tidak bisa sync chat.");
-    
+  
+    setIsSyncing(true);
+  
     try {
       const token = localStorage.getItem("token");
       if (!token) throw new Error("Token tidak ditemukan");
-
+  
       for (const chat of chatHistory) {
-        const response = await axios.post(
+        await axios.post(
           `/api/history/${id}`,
           { message: { role: chat.role, content: chat.content } },
           { headers: { Authorization: `Bearer ${token}` } }
         );
-        console.log("Response dari server:", response.data);
       }
-
+  
       console.log("Chat history berhasil dikirim ke server!");
     } catch (error) {
       console.error("Error syncing chat history:", error.response?.data || error.message);
+    } finally {
+      setIsSyncing(false);
     }
   };
+  
 
   const restoreChatHistoryFromServer = async () => {
     if (!id) return console.error("ID tidak ditemukan, tidak bisa mengambil chat.");
-    
+  
+    setIsRestoring(true);
+  
     try {
       const token = localStorage.getItem("token");
       if (!token) throw new Error("Token tidak ditemukan");
-
+  
       const response = await axios.get(`/api/history/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-
+  
       const restoredChats = response.data.messages || [];
       setChatHistory(restoredChats);
-      localStorage.setItem("chatHistory", JSON.stringify({ 
-        ...JSON.parse(localStorage.getItem("chatHistory") || "{}"), 
-        [id]: restoredChats 
+      localStorage.setItem("chatHistory", JSON.stringify({
+        ...JSON.parse(localStorage.getItem("chatHistory") || "{}"),
+        [id]: restoredChats
       }));
-
+  
       console.log("Chat history berhasil dikembalikan dari server!");
     } catch (error) {
       console.error("Error restoring chat history:", error.response?.data || error.message);
+    } finally {
+      setIsRestoring(false);
     }
   };
+  
 
   const handleSend = async () => {
     if (!input.trim() || input.length > 500) return;
@@ -159,10 +171,37 @@ const ChatDetail = () => {
           <ChatForm input={input} setInput={setInput} handleSend={handleSend} isLoading={isLoading} />
           <ChatHistory chatHistory={chatHistory} isLoading={isLoading} handleClearHistory={handleClearHistory} />
           <div className="flex justify-center space-x-1 mt-4">
-            <button className="bg-white p-3 rounded-full" onClick={syncChatHistoryToServer}>
+            <button 
+              onClick={syncChatHistoryToServer} 
+              className="bg-blue-500 text-white px-4 py-2 rounded-full flex items-center"
+              disabled={isSyncing}
+            >
+              {isSyncing ? (
+                <span className="animate-spin mr-2">
+                  <Icon icon="line-md:loading-loop" width="20" height="20" />
+                </span>
+              ) : (
+                <span className="mr-2">
+                  <Icon icon="mdi:cloud-upload-outline" width="20" height="20" />
+                </span>
+              )}
               Sync
             </button>
-            <button className="border border-white/15 text-white p-3 rounded-full" onClick={restoreChatHistoryFromServer}>
+
+            <button 
+              onClick={restoreChatHistoryFromServer} 
+              className="bg-green-500 text-white px-4 py-2 rounded-full flex items-center"
+              disabled={isRestoring}
+            >
+              {isRestoring ? (
+                <span className="animate-spin mr-2">
+                  <Icon icon="line-md:loading-loop" width="20" height="20" />
+                </span>
+              ) : (
+                <span className="mr-2">
+                  <Icon icon="mdi:cloud-download-outline" width="20" height="20" />
+                </span>
+              )}
               Restore
             </button>
           </div>
