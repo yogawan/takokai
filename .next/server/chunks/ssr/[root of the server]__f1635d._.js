@@ -181,141 +181,42 @@ __turbopack_async_result__();
 "[project]/src/components/Sidebar.jsx [ssr] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, x: __turbopack_external_require__, y: __turbopack_external_import__, z: __turbopack_require_stub__ } = __turbopack_context__;
-{
+var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, a: __turbopack_async_module__, x: __turbopack_external_require__, y: __turbopack_external_import__, z: __turbopack_require_stub__ } = __turbopack_context__;
+__turbopack_async_module__(async (__turbopack_handle_async_dependencies__, __turbopack_async_result__) => { try {
 __turbopack_esm__({
     "default": (()=>__TURBOPACK__default__export__)
 });
 var __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__ = __turbopack_import__("[externals]/react/jsx-dev-runtime [external] (react/jsx-dev-runtime, cjs)");
 var __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__ = __turbopack_import__("[externals]/react [external] (react, cjs)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/link.js [ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__ = __turbopack_import__("[externals]/@iconify/react [external] (@iconify/react, esm_import)");
+var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
+    __TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__
+]);
+([__TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__] = __turbopack_async_dependencies__.then ? (await __turbopack_async_dependencies__)() : __turbopack_async_dependencies__);
 ;
 ;
 ;
-const Sidebar = ()=>{
+;
+const Sidebar = ({ href = "/", label = "Default" })=>{
     const [isMenuOpen, setIsMenuOpen] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(false);
     const toggleMenu = ()=>{
         setIsMenuOpen(!isMenuOpen);
     };
     const ChatHistory = [
         {
-            label: "What is AI? How it works?",
+            label: "yogawan",
             path: "/",
             icon: ""
         },
         {
-            label: "DeepSeek R1 from china, what is that?",
+            label: "lootzelui",
             path: "/",
             icon: ""
         },
         {
-            label: "GPT 4o, better than DeepSeek?",
+            label: "mikodian",
             path: "/",
-            icon: ""
-        },
-        {
-            label: "Gemini better than GPT 4o",
-            path: "",
-            icon: ""
-        },
-        {
-            label: "What is AI? How it works?",
-            path: "/",
-            icon: ""
-        },
-        {
-            label: "DeepSeek R1 from china, what is that?",
-            path: "/",
-            icon: ""
-        },
-        {
-            label: "GPT 4o, better than DeepSeek?",
-            path: "/",
-            icon: ""
-        },
-        {
-            label: "Gemini better than GPT 4o",
-            path: "",
-            icon: ""
-        },
-        {
-            label: "What is AI? How it works?",
-            path: "/",
-            icon: ""
-        },
-        {
-            label: "DeepSeek R1 from china, what is that?",
-            path: "/",
-            icon: ""
-        },
-        {
-            label: "GPT 4o, better than DeepSeek?",
-            path: "/",
-            icon: ""
-        },
-        {
-            label: "Gemini better than GPT 4o",
-            path: "",
-            icon: ""
-        },
-        {
-            label: "What is AI? How it works?",
-            path: "/",
-            icon: ""
-        },
-        {
-            label: "DeepSeek R1 from china, what is that?",
-            path: "/",
-            icon: ""
-        },
-        {
-            label: "GPT 4o, better than DeepSeek?",
-            path: "/",
-            icon: ""
-        },
-        {
-            label: "Gemini better than GPT 4o",
-            path: "",
-            icon: ""
-        },
-        {
-            label: "What is AI? How it works?",
-            path: "/",
-            icon: ""
-        },
-        {
-            label: "DeepSeek R1 from china, what is that?",
-            path: "/",
-            icon: ""
-        },
-        {
-            label: "GPT 4o, better than DeepSeek?",
-            path: "/",
-            icon: ""
-        },
-        {
-            label: "Gemini better than GPT 4o",
-            path: "",
-            icon: ""
-        },
-        {
-            label: "What is AI? How it works?",
-            path: "/",
-            icon: ""
-        },
-        {
-            label: "DeepSeek R1 from china, what is that?",
-            path: "/",
-            icon: ""
-        },
-        {
-            label: "GPT 4o, better than DeepSeek?",
-            path: "/",
-            icon: ""
-        },
-        {
-            label: "Gemini better than GPT 4o",
-            path: "",
             icon: ""
         }
     ];
@@ -338,66 +239,61 @@ const Sidebar = ()=>{
                                         className: `block h-0.5 bg-white rounded transition-transform duration-300 ${isMenuOpen ? "rotate-45 translate-y-2.5" : ""}`
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Sidebar.jsx",
-                                        lineNumber: 49,
+                                        lineNumber: 29,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
                                         className: `block h-0.5 bg-white rounded transition-all duration-300 ${isMenuOpen ? "opacity-0" : "opacity-100"}`
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Sidebar.jsx",
-                                        lineNumber: 54,
+                                        lineNumber: 34,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
                                         className: `block h-0.5 bg-white rounded transition-transform duration-300 ${isMenuOpen ? "-rotate-45 -translate-y-2.5" : ""}`
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Sidebar.jsx",
-                                        lineNumber: 59,
+                                        lineNumber: 39,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/Sidebar.jsx",
-                                lineNumber: 48,
+                                lineNumber: 28,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/components/Sidebar.jsx",
-                            lineNumber: 43,
+                            lineNumber: 23,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/Sidebar.jsx",
-                        lineNumber: 42,
+                        lineNumber: 22,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                        className: "text-white text-xs px-3 py-3 border border-white/15 rounded-full",
-                        children: "JawirAI v2.6.1"
-                    }, void 0, false, {
-                        fileName: "[project]/src/components/Sidebar.jsx",
-                        lineNumber: 67,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                        className: "flex items-center text-lg font-inter font-bold italic underline text-white",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
-                            href: "/auth/register",
-                            children: "Register"
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
+                        href: href,
+                        legacyBehavior: true,
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__["Icon"], {
+                            className: "text-white",
+                            icon: label,
+                            width: "32",
+                            height: "32"
                         }, void 0, false, {
                             fileName: "[project]/src/components/Sidebar.jsx",
-                            lineNumber: 69,
+                            lineNumber: 49,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/Sidebar.jsx",
-                        lineNumber: 68,
+                        lineNumber: 48,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/Sidebar.jsx",
-                lineNumber: 41,
+                lineNumber: 21,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -417,25 +313,25 @@ const Sidebar = ()=>{
                                     className: "absolute top-0 left-0 block w-6 h-0.5 bg-white rounded transform rotate-45"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Sidebar.jsx",
-                                    lineNumber: 87,
+                                    lineNumber: 67,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
                                     className: "absolute top-0 left-0 block w-6 h-0.5 bg-white rounded transform -rotate-45"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Sidebar.jsx",
-                                    lineNumber: 88,
+                                    lineNumber: 68,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/Sidebar.jsx",
-                            lineNumber: 86,
+                            lineNumber: 66,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/Sidebar.jsx",
-                        lineNumber: 81,
+                        lineNumber: 61,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("ul", {
@@ -443,88 +339,98 @@ const Sidebar = ()=>{
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
                                 className: "text-3xl text-white m-3",
-                                children: "Chat Histori"
+                                children: "Our Team"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Sidebar.jsx",
-                                lineNumber: 92,
+                                lineNumber: 73,
                                 columnNumber: 11
                             }, this),
                             ChatHistory.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
                                     className: "flex justify-start items-start text-white dark:text-white transition duration-500",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                                         href: item.path,
-                                        className: "font-inter m-3 text-xl font-thin transition-transform transform hover:scale-110",
-                                        onClick: toggleMenu,
-                                        children: item.label
+                                        legacyBehavior: true,
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("a", {
+                                            className: "font-inter m-3 text-xl font-thin transition-transform transform hover:scale-110",
+                                            onClick: toggleMenu,
+                                            children: item.label
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/Sidebar.jsx",
+                                            lineNumber: 81,
+                                            columnNumber: 17
+                                        }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Sidebar.jsx",
-                                        lineNumber: 98,
+                                        lineNumber: 80,
                                         columnNumber: 15
                                     }, this)
                                 }, index, false, {
                                     fileName: "[project]/src/components/Sidebar.jsx",
-                                    lineNumber: 94,
+                                    lineNumber: 75,
                                     columnNumber: 13
                                 }, this))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/Sidebar.jsx",
-                        lineNumber: 91,
+                        lineNumber: 72,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/Sidebar.jsx",
-                lineNumber: 73,
+                lineNumber: 53,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/Sidebar.jsx",
-        lineNumber: 39,
+        lineNumber: 19,
         columnNumber: 5
     }, this);
 };
 const __TURBOPACK__default__export__ = Sidebar;
-}}),
+__turbopack_async_result__();
+} catch(e) { __turbopack_async_result__(e); } }, false);}),
 "[project]/src/pages/history/index.jsx [ssr] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
 var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, a: __turbopack_async_module__, x: __turbopack_external_require__, y: __turbopack_external_import__, z: __turbopack_require_stub__ } = __turbopack_context__;
 __turbopack_async_module__(async (__turbopack_handle_async_dependencies__, __turbopack_async_result__) => { try {
 __turbopack_esm__({
-    "default": (()=>ChatHistory)
+    "default": (()=>__TURBOPACK__default__export__)
 });
 var __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__ = __turbopack_import__("[externals]/react/jsx-dev-runtime [external] (react/jsx-dev-runtime, cjs)");
 var __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__ = __turbopack_import__("[externals]/react [external] (react, cjs)");
 var __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__ = __turbopack_import__("[externals]/axios [external] (axios, esm_import)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/router.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__ = __turbopack_import__("[externals]/@iconify/react [external] (@iconify/react, esm_import)");
+// import Navbar from "@/components/Navbar";
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Sidebar$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/components/Sidebar.jsx [ssr] (ecmascript)");
 var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
     __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__,
-    __TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__
+    __TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__,
+    __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Sidebar$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__
 ]);
-([__TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__, __TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__] = __turbopack_async_dependencies__.then ? (await __turbopack_async_dependencies__)() : __turbopack_async_dependencies__);
+([__TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__, __TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Sidebar$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__] = __turbopack_async_dependencies__.then ? (await __turbopack_async_dependencies__)() : __turbopack_async_dependencies__);
 ;
 ;
 ;
 ;
 ;
 ;
-function ChatHistory() {
+const ChatHistory = ()=>{
     const [chats, setChats] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])([]);
     const [modalOpen, setModalOpen] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(false);
     const [editingChat, setEditingChat] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(null);
     const [title, setTitle] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])("");
-    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["useRouter"])(); // Tambahkan router untuk navigasi
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useEffect"])(()=>{
         fetchChats();
     }, []);
     const fetchChats = async ()=>{
         try {
             const token = localStorage.getItem("token");
-            const response = await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].get("http://localhost:3000/api/history", {
+            const response = await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].get("/api/history", {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -544,7 +450,7 @@ function ChatHistory() {
             }
             if (editingChat) {
                 // Update chat
-                await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].put(`http://localhost:3000/api/history?id=${editingChat._id}`, {
+                await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].put(`/api/history?id=${editingChat._id}`, {
                     title
                 }, {
                     headers: {
@@ -553,7 +459,7 @@ function ChatHistory() {
                 });
             } else {
                 // Create chat
-                await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].post("http://localhost:3000/api/history", {
+                await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].post("/api/history", {
                     title
                 }, {
                     headers: {
@@ -570,7 +476,7 @@ function ChatHistory() {
     const handleDelete = async (id)=>{
         try {
             const token = localStorage.getItem("token");
-            await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].delete(`http://localhost:3000/api/history?id=${id}`, {
+            await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].delete(`/api/history?id=${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -591,42 +497,46 @@ function ChatHistory() {
         setModalOpen(false);
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-        className: "flex justify-center bg-black pb-[1080px] p-3",
+        className: "pt-[96px] flex justify-center bg-black pb-[1080px] p-3",
         children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(Navbar, {}, void 0, false, {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Sidebar$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
+                href: "/profile",
+                label: "gg:profile"
+            }, void 0, false, {
                 fileName: "[project]/src/pages/history/index.jsx",
-                lineNumber: 89,
+                lineNumber: 91,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h1", {
-                        className: "text-white text-3xl",
-                        children: "Chat History"
-                    }, void 0, false, {
-                        fileName: "[project]/src/pages/history/index.jsx",
-                        lineNumber: 92,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
-                        className: "text-white fixed bottom-5 right-5",
-                        onClick: ()=>openModal(),
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__["Icon"], {
-                            icon: "basil:add-solid",
-                            width: "64",
-                            height: "64"
-                        }, void 0, false, {
-                            fileName: "[project]/src/pages/history/index.jsx",
-                            lineNumber: 95,
-                            columnNumber: 11
-                        }, this)
+                        className: "text-center text-white text-3xl",
+                        children: "All Chat"
                     }, void 0, false, {
                         fileName: "[project]/src/pages/history/index.jsx",
                         lineNumber: 94,
                         columnNumber: 9
                     }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
+                        className: "bg-white/5 p-5 rounded-full border border-white/15 backdrop-blur text-white fixed bottom-5 right-5",
+                        onClick: ()=>openModal(),
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__["Icon"], {
+                            className: "text-white",
+                            icon: "ic:baseline-plus",
+                            width: "32",
+                            height: "32"
+                        }, void 0, false, {
+                            fileName: "[project]/src/pages/history/index.jsx",
+                            lineNumber: 97,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/src/pages/history/index.jsx",
+                        lineNumber: 96,
+                        columnNumber: 9
+                    }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("ul", {
-                        className: "p-3 w-full xs:w-[390px] sm:w-[610px]",
+                        className: "p-3 w-[340px] xs:w-[390px] sm:w-[610px]",
                         children: chats.map((chat)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
                                 className: "flex text-white/75 pt-3 pb-3 border-b border-white/15",
                                 children: [
@@ -639,7 +549,7 @@ function ChatHistory() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/pages/history/index.jsx",
-                                        lineNumber: 102,
+                                        lineNumber: 104,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
@@ -652,12 +562,12 @@ function ChatHistory() {
                                             className: "text-white"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/history/index.jsx",
-                                            lineNumber: 105,
+                                            lineNumber: 107,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/history/index.jsx",
-                                        lineNumber: 104,
+                                        lineNumber: 106,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
@@ -670,91 +580,99 @@ function ChatHistory() {
                                             className: "text-white"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/history/index.jsx",
-                                            lineNumber: 109,
+                                            lineNumber: 111,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/history/index.jsx",
-                                        lineNumber: 108,
+                                        lineNumber: 110,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, chat._id, true, {
                                 fileName: "[project]/src/pages/history/index.jsx",
-                                lineNumber: 100,
+                                lineNumber: 102,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/pages/history/index.jsx",
-                        lineNumber: 98,
+                        lineNumber: 100,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/pages/history/index.jsx",
-                lineNumber: 91,
+                lineNumber: 93,
                 columnNumber: 7
             }, this),
             modalOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                className: "fixed top-0 left-0 right-0 flex flex-col justify-center h-screen bg-black text-white",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h2", {
-                        className: "ml-5",
-                        children: editingChat ? "Edit Chat" : "Tambah Chat"
-                    }, void 0, false, {
-                        fileName: "[project]/src/pages/history/index.jsx",
-                        lineNumber: 119,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
-                        className: "bg-transparent border border-white/15 p-3 m-3 rounded-xl",
-                        type: "text",
-                        value: title,
-                        onChange: (e)=>setTitle(e.target.value),
-                        placeholder: "Masukkan judul chat"
-                    }, void 0, false, {
-                        fileName: "[project]/src/pages/history/index.jsx",
-                        lineNumber: 120,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                        className: "flex justify-between items-center ml-5 mr-5",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
-                                onClick: handleCreateOrUpdate,
-                                children: editingChat ? "Simpan Perubahan" : "Tambah"
-                            }, void 0, false, {
-                                fileName: "[project]/src/pages/history/index.jsx",
-                                lineNumber: 128,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
-                                onClick: closeModal,
-                                children: "Batal"
-                            }, void 0, false, {
-                                fileName: "[project]/src/pages/history/index.jsx",
-                                lineNumber: 131,
-                                columnNumber: 13
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/src/pages/history/index.jsx",
-                        lineNumber: 127,
-                        columnNumber: 11
-                    }, this)
-                ]
-            }, void 0, true, {
+                className: "fixed top-0 left-0 right-0 flex justify-center items-center h-screen bg-black/15 backdrop-blur text-white",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                    className: "p-3 w-full xs:w-[390px]",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h2", {
+                            className: "ml-5",
+                            children: editingChat ? "Edit Chat" : "Tambah Chat"
+                        }, void 0, false, {
+                            fileName: "[project]/src/pages/history/index.jsx",
+                            lineNumber: 122,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
+                            className: "w-full bg-transparent border border-white/15 p-3 m-3 rounded-xl",
+                            type: "text",
+                            value: title,
+                            onChange: (e)=>setTitle(e.target.value),
+                            placeholder: "Masukkan judul chat"
+                        }, void 0, false, {
+                            fileName: "[project]/src/pages/history/index.jsx",
+                            lineNumber: 123,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                            className: "flex justify-between items-center ml-5 mr-5",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
+                                    onClick: handleCreateOrUpdate,
+                                    children: editingChat ? "Simpan Perubahan" : "Tambah"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/pages/history/index.jsx",
+                                    lineNumber: 131,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
+                                    onClick: closeModal,
+                                    children: "Batal"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/pages/history/index.jsx",
+                                    lineNumber: 134,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/pages/history/index.jsx",
+                            lineNumber: 130,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/pages/history/index.jsx",
+                    lineNumber: 121,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
                 fileName: "[project]/src/pages/history/index.jsx",
-                lineNumber: 118,
+                lineNumber: 120,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/pages/history/index.jsx",
-        lineNumber: 88,
+        lineNumber: 89,
         columnNumber: 5
     }, this);
-}
+};
+const __TURBOPACK__default__export__ = ChatHistory;
 __turbopack_async_result__();
 } catch(e) { __turbopack_async_result__(e); } }, false);}),
 

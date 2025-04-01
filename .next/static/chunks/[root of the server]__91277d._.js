@@ -1,4 +1,4 @@
-(globalThis.TURBOPACK = globalThis.TURBOPACK || []).push(["static/chunks/[root of the server]__b2c759._.js", {
+(globalThis.TURBOPACK = globalThis.TURBOPACK || []).push(["static/chunks/[root of the server]__91277d._.js", {
 
 "[turbopack]/browser/dev/hmr-client/websocket.ts [client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
@@ -766,7 +766,57 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
     __turbopack_refresh__.registerExports(module, globalThis.$RefreshHelpers$);
 }
 }}),
-"[project]/src/pages/history/index.jsx [client] (ecmascript)": ((__turbopack_context__) => {
+"[project]/src/components/ProtectedImage.jsx [client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, k: __turbopack_refresh__, m: module, z: __turbopack_require_stub__ } = __turbopack_context__;
+{
+__turbopack_esm__({
+    "default": (()=>__TURBOPACK__default__export__)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/react/jsx-dev-runtime.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/react/index.js [client] (ecmascript)");
+;
+;
+const ProtectedImage = ({ src, alt, className })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "relative",
+        onContextMenu: (e)=>e.preventDefault(),
+        style: {
+            userSelect: "none"
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                src: src,
+                alt: alt,
+                className: `${className} pointer-events-none`,
+                draggable: "false"
+            }, void 0, false, {
+                fileName: "[project]/src/components/ProtectedImage.jsx",
+                lineNumber: 9,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute inset-0 bg-transparent"
+            }, void 0, false, {
+                fileName: "[project]/src/components/ProtectedImage.jsx",
+                lineNumber: 10,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/components/ProtectedImage.jsx",
+        lineNumber: 4,
+        columnNumber: 5
+    }, this);
+_c = ProtectedImage;
+const __TURBOPACK__default__export__ = ProtectedImage;
+var _c;
+__turbopack_refresh__.register(_c, "ProtectedImage");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_refresh__.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
+"[project]/src/pages/profile/index.jsx [client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
 var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, k: __turbopack_refresh__, m: module, z: __turbopack_require_stub__ } = __turbopack_context__;
@@ -777,9 +827,10 @@ __turbopack_esm__({
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/react/jsx-dev-runtime.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/react/index.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/router.js [client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$iconify$2f$react$2f$dist$2f$iconify$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/@iconify/react/dist/iconify.js [client] (ecmascript)");
 // import Navbar from "@/components/Navbar";
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Sidebar$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/components/Sidebar.jsx [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProtectedImage$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/components/ProtectedImage.jsx [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$iconify$2f$react$2f$dist$2f$iconify$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/@iconify/react/dist/iconify.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/axios/lib/axios.js [client] (ecmascript)");
 ;
 var _s = __turbopack_refresh__.signature();
@@ -788,285 +839,203 @@ var _s = __turbopack_refresh__.signature();
 ;
 ;
 ;
-const ChatHistory = ()=>{
+;
+const Profile = ()=>{
     _s();
-    const [chats, setChats] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])([]);
-    const [modalOpen, setModalOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [editingChat, setEditingChat] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [title, setTitle] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])("");
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useRouter"])();
+    const [user, setUser] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])("");
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "ChatHistory.useEffect": ()=>{
-            fetchChats();
-        }
-    }["ChatHistory.useEffect"], []);
-    const fetchChats = async ()=>{
-        try {
-            const token = localStorage.getItem("token");
-            const response = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].get("/api/history", {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
-            setChats(response.data);
-        } catch (error) {
-            console.error("Error fetching chats:", error.response?.data || error.message);
-        }
-    };
-    const handleCreateOrUpdate = async ()=>{
-        try {
-            const token = localStorage.getItem("token");
-            if (!token) throw new Error("Token tidak ditemukan");
-            if (!title.trim()) {
-                alert("Title tidak boleh kosong");
-                return;
-            }
-            if (editingChat) {
-                // Update chat
-                await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].put(`/api/history?id=${editingChat._id}`, {
-                    title
-                }, {
-                    headers: {
-                        Authorization: `Bearer ${token}`
+        "Profile.useEffect": ()=>{
+            const fetchUserProfile = {
+                "Profile.useEffect.fetchUserProfile": async ()=>{
+                    const token = localStorage.getItem("token");
+                    if (!token) {
+                        setError("Token tidak ditemukan, silakan login.");
+                        return;
                     }
-                });
-            } else {
-                // Create chat
-                await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].post("/api/history", {
-                    title
-                }, {
-                    headers: {
-                        Authorization: `Bearer ${token}`
+                    try {
+                        const response = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].get("/api/profile", {
+                            headers: {
+                                Authorization: `Bearer ${token}`
+                            }
+                        });
+                        setUser(response.data);
+                    } catch (err) {
+                        setError(err.response?.data?.message || "Terjadi kesalahan.");
+                        localStorage.removeItem("token"); // Hapus token jika tidak valid
                     }
-                });
-            }
-            fetchChats();
-            closeModal();
-        } catch (error) {
-            console.error("Error saving chat:", error.response?.data || error.message);
-        }
-    };
-    const handleDelete = async (id)=>{
-        try {
-            const token = localStorage.getItem("token");
-            await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].delete(`/api/history?id=${id}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`
                 }
-            });
-            fetchChats();
-        } catch (error) {
-            console.error("Error deleting chat:", error.response?.data || error.message);
+            }["Profile.useEffect.fetchUserProfile"];
+            fetchUserProfile();
         }
-    };
-    const openModal = (chat = null)=>{
-        setEditingChat(chat);
-        setTitle(chat ? chat.title : "");
-        setModalOpen(true);
-    };
-    const closeModal = ()=>{
-        setEditingChat(null);
-        setTitle("");
-        setModalOpen(false);
+    }["Profile.useEffect"], []);
+    const handleLogout = ()=>{
+        localStorage.removeItem("token");
+        router.push("/");
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "pt-[96px] flex justify-center bg-black pb-[1080px] p-3",
+        className: "bg-black",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Sidebar$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                href: "/profile",
-                label: "gg:profile"
+                href: "/history",
+                label: "ri:arrow-right-line"
             }, void 0, false, {
-                fileName: "[project]/src/pages/history/index.jsx",
-                lineNumber: 91,
+                fileName: "[project]/src/pages/profile/index.jsx",
+                lineNumber: 45,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                        className: "text-center text-white text-3xl",
-                        children: "All Chat"
-                    }, void 0, false, {
-                        fileName: "[project]/src/pages/history/index.jsx",
-                        lineNumber: 94,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        className: "bg-white/5 p-5 rounded-full border border-white/15 backdrop-blur text-white fixed bottom-5 right-5",
-                        onClick: ()=>openModal(),
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$iconify$2f$react$2f$dist$2f$iconify$2e$js__$5b$client$5d$__$28$ecmascript$29$__["Icon"], {
-                            className: "text-white",
-                            icon: "ic:baseline-plus",
-                            width: "32",
-                            height: "32"
-                        }, void 0, false, {
-                            fileName: "[project]/src/pages/history/index.jsx",
-                            lineNumber: 97,
-                            columnNumber: 11
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "[project]/src/pages/history/index.jsx",
-                        lineNumber: 96,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                        className: "p-3 w-[340px] xs:w-[390px] sm:w-[610px]",
-                        children: chats.map((chat)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                className: "flex text-white/75 pt-3 pb-3 border-b border-white/15",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                        onClick: ()=>router.push(`/history/${chat._id}`),
-                                        className: "text-left text-xl pb-2",
-                                        children: [
-                                            chat.title,
-                                            " "
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/src/pages/history/index.jsx",
-                                        lineNumber: 104,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                        className: "text-xs pl-5",
-                                        onClick: ()=>openModal(chat),
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$iconify$2f$react$2f$dist$2f$iconify$2e$js__$5b$client$5d$__$28$ecmascript$29$__["Icon"], {
-                                            icon: "lucide:edit",
-                                            width: "16",
-                                            height: "16",
-                                            className: "text-white"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/pages/history/index.jsx",
-                                            lineNumber: 107,
-                                            columnNumber: 17
-                                        }, this)
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/pages/history/index.jsx",
-                                        lineNumber: 106,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                        className: "text-xs pl-3",
-                                        onClick: ()=>handleDelete(chat._id),
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$iconify$2f$react$2f$dist$2f$iconify$2e$js__$5b$client$5d$__$28$ecmascript$29$__["Icon"], {
-                                            icon: "material-symbols:delete",
-                                            width: "16",
-                                            height: "16",
-                                            className: "text-white"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/pages/history/index.jsx",
-                                            lineNumber: 111,
-                                            columnNumber: 17
-                                        }, this)
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/pages/history/index.jsx",
-                                        lineNumber: 110,
-                                        columnNumber: 15
-                                    }, this)
-                                ]
-                            }, chat._id, true, {
-                                fileName: "[project]/src/pages/history/index.jsx",
-                                lineNumber: 102,
-                                columnNumber: 13
-                            }, this))
-                    }, void 0, false, {
-                        fileName: "[project]/src/pages/history/index.jsx",
-                        lineNumber: 100,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/src/pages/history/index.jsx",
-                lineNumber: 93,
-                columnNumber: 7
-            }, this),
-            modalOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "fixed top-0 left-0 right-0 flex justify-center items-center h-screen bg-black/15 backdrop-blur text-white",
+                className: "bg-black h-screen flex justify-center items-center",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "p-3 w-full xs:w-[390px]",
                     children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                            className: "ml-5",
-                            children: editingChat ? "Edit Chat" : "Tambah Chat"
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProtectedImage$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                            src: "/branding/logo.png",
+                            className: "w-[128px] ml-5 mb-5",
+                            alt: "JawirAI Logo"
                         }, void 0, false, {
-                            fileName: "[project]/src/pages/history/index.jsx",
-                            lineNumber: 122,
-                            columnNumber: 13
+                            fileName: "[project]/src/pages/profile/index.jsx",
+                            lineNumber: 49,
+                            columnNumber: 11
                         }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                            className: "w-full bg-transparent border border-white/15 p-3 m-3 rounded-xl",
-                            type: "text",
-                            value: title,
-                            onChange: (e)=>setTitle(e.target.value),
-                            placeholder: "Masukkan judul chat"
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                            className: "text-white text-3xl ml-5 mb-3",
+                            children: "User Profile"
                         }, void 0, false, {
-                            fileName: "[project]/src/pages/history/index.jsx",
-                            lineNumber: 123,
-                            columnNumber: 13
+                            fileName: "[project]/src/pages/profile/index.jsx",
+                            lineNumber: 55,
+                            columnNumber: 11
                         }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex justify-between items-center ml-5 mr-5",
+                        error ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "text-red-500",
+                            children: error
+                        }, void 0, false, {
+                            fileName: "[project]/src/pages/profile/index.jsx",
+                            lineNumber: 58,
+                            columnNumber: 13
+                        }, this) : user ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "p-5 w-[340px] xs:w-[390px] border border-white/15 rounded-3xl",
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    onClick: handleCreateOrUpdate,
-                                    children: editingChat ? "Simpan Perubahan" : "Tambah"
-                                }, void 0, false, {
-                                    fileName: "[project]/src/pages/history/index.jsx",
-                                    lineNumber: 131,
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex items-center",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$iconify$2f$react$2f$dist$2f$iconify$2e$js__$5b$client$5d$__$28$ecmascript$29$__["Icon"], {
+                                            className: "text-white",
+                                            icon: "gg:profile",
+                                            width: "16",
+                                            height: "16"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/pages/profile/index.jsx",
+                                            lineNumber: 62,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "ml-2 text-white/35 text-xs",
+                                            children: user.name
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/pages/profile/index.jsx",
+                                            lineNumber: 63,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/pages/profile/index.jsx",
+                                    lineNumber: 61,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex items-center mt-2",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$iconify$2f$react$2f$dist$2f$iconify$2e$js__$5b$client$5d$__$28$ecmascript$29$__["Icon"], {
+                                            className: "text-white",
+                                            icon: "ic:baseline-email",
+                                            width: "16",
+                                            height: "16"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/pages/profile/index.jsx",
+                                            lineNumber: 67,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "ml-2 text-white/35 text-xs",
+                                            children: user.email
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/pages/profile/index.jsx",
+                                            lineNumber: 68,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
+                                            fileName: "[project]/src/pages/profile/index.jsx",
+                                            lineNumber: 68,
+                                            columnNumber: 75
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/pages/profile/index.jsx",
+                                    lineNumber: 66,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    onClick: closeModal,
-                                    children: "Batal"
+                                    className: "p-3 mt-5 bg-red-500 rounded-full text-white/75 text-xs",
+                                    onClick: handleLogout,
+                                    children: "Logout"
                                 }, void 0, false, {
-                                    fileName: "[project]/src/pages/history/index.jsx",
-                                    lineNumber: 134,
+                                    fileName: "[project]/src/pages/profile/index.jsx",
+                                    lineNumber: 70,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
-                            fileName: "[project]/src/pages/history/index.jsx",
-                            lineNumber: 130,
+                            fileName: "[project]/src/pages/profile/index.jsx",
+                            lineNumber: 60,
+                            columnNumber: 13
+                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            children: "Loading..."
+                        }, void 0, false, {
+                            fileName: "[project]/src/pages/profile/index.jsx",
+                            lineNumber: 78,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
-                    fileName: "[project]/src/pages/history/index.jsx",
-                    lineNumber: 121,
-                    columnNumber: 11
+                    fileName: "[project]/src/pages/profile/index.jsx",
+                    lineNumber: 48,
+                    columnNumber: 9
                 }, this)
             }, void 0, false, {
-                fileName: "[project]/src/pages/history/index.jsx",
-                lineNumber: 120,
-                columnNumber: 9
+                fileName: "[project]/src/pages/profile/index.jsx",
+                lineNumber: 47,
+                columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
-        fileName: "[project]/src/pages/history/index.jsx",
-        lineNumber: 89,
+        fileName: "[project]/src/pages/profile/index.jsx",
+        lineNumber: 44,
         columnNumber: 5
     }, this);
 };
-_s(ChatHistory, "/YVfE++7T8OaxaW3LHIzwsmSB/A=", false, function() {
+_s(Profile, "ADSI5nhX+t4Asx2a02vBPezZafc=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useRouter"]
     ];
 });
-_c = ChatHistory;
-const __TURBOPACK__default__export__ = ChatHistory;
+_c = Profile;
+const __TURBOPACK__default__export__ = Profile;
 var _c;
-__turbopack_refresh__.register(_c, "ChatHistory");
+__turbopack_refresh__.register(_c, "Profile");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_refresh__.registerExports(module, globalThis.$RefreshHelpers$);
 }
 }}),
-"[next]/entry/page-loader.ts { PAGE => \"[project]/src/pages/history/index.jsx [client] (ecmascript)\" } [client] (ecmascript)": (function(__turbopack_context__) {
+"[next]/entry/page-loader.ts { PAGE => \"[project]/src/pages/profile/index.jsx [client] (ecmascript)\" } [client] (ecmascript)": (function(__turbopack_context__) {
 
 var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, m: module, e: exports, t: __turbopack_require_real__ } = __turbopack_context__;
 {
-const PAGE_PATH = "/history";
+const PAGE_PATH = "/profile";
 (window.__NEXT_P = window.__NEXT_P || []).push([
     PAGE_PATH,
     ()=>{
-        return __turbopack_require__("[project]/src/pages/history/index.jsx [client] (ecmascript)");
+        return __turbopack_require__("[project]/src/pages/profile/index.jsx [client] (ecmascript)");
     }
 ]);
 // @ts-expect-error module.hot exists
@@ -1079,13 +1048,13 @@ if (module.hot) {
     });
 }
 }}),
-"[project]/src/pages/history/index.jsx (hmr-entry)": ((__turbopack_context__) => {
+"[project]/src/pages/profile/index.jsx (hmr-entry)": ((__turbopack_context__) => {
 "use strict";
 
 var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, m: module, t: __turbopack_require_real__ } = __turbopack_context__;
 {
-__turbopack_require__("[next]/entry/page-loader.ts { PAGE => \"[project]/src/pages/history/index.jsx [client] (ecmascript)\" } [client] (ecmascript)");
+__turbopack_require__("[next]/entry/page-loader.ts { PAGE => \"[project]/src/pages/profile/index.jsx [client] (ecmascript)\" } [client] (ecmascript)");
 }}),
 }]);
 
-//# sourceMappingURL=%5Broot%20of%20the%20server%5D__b2c759._.js.map
+//# sourceMappingURL=%5Broot%20of%20the%20server%5D__91277d._.js.map

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { Icon } from "@iconify/react";
-import Navbar from "@/components/Navbar";
+// import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 
 const ChatHistory = () => {
@@ -87,14 +87,14 @@ const ChatHistory = () => {
 
   return (
     <div className="pt-[96px] flex justify-center bg-black pb-[1080px] p-3">
-      <Navbar />
-      <Sidebar />
+      {/* <Navbar /> */}
+      <Sidebar href="/profile" label="gg:profile" />
 
       <div>
-        <h1 className="text-center text-white text-3xl">Chat History</h1>
+        <h1 className="text-center text-white text-3xl">All Chat</h1>
 
-        <button className="text-white fixed bottom-20 right-5" onClick={() => openModal()}>
-          <Icon icon="basil:add-solid" width="64" height="64" />
+        <button className="bg-white/5 p-5 rounded-full border border-white/15 backdrop-blur text-white fixed bottom-5 right-5" onClick={() => openModal()}>
+          <Icon className="text-white" icon="ic:baseline-plus" width="32" height="32" />
         </button>
 
         <ul className="p-3 w-[340px] xs:w-[390px] sm:w-[610px]">

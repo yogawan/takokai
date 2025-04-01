@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
-import Navbar from "@/components/Navbar";
+// import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 import ProtectedImage from "@/components/ProtectedImage";
 import { Icon } from "@iconify/react";
@@ -42,8 +42,8 @@ const Profile = () => {
 
   return (
     <div className="bg-black">
-      <Sidebar />
-      <Navbar />
+      <Sidebar href="/history" label="ri:arrow-right-line" />
+      {/* <Navbar /> */}
       <div className="bg-black h-screen flex justify-center items-center">
         <div>
           <ProtectedImage

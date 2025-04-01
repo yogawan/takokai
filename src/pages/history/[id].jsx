@@ -144,8 +144,8 @@ const ChatDetail = () => {
 
   return (
     <div className="bg-black w-full flex flex-col">
-      <Sidebar />
-      <nav className="fixed bottom-5 left-0 right-0 flex justify-center">
+      <Sidebar href="/profile" />
+      {/* <nav className="fixed bottom-5 left-0 right-0 flex justify-center">
           <ul className="bg-black/5 backdrop-blur flex p-3 border border-white/15 rounded-full">
               <li className="m-3">
                   <Link className="flex items-center text-white text-xs" href="/history">
@@ -160,7 +160,7 @@ const ChatDetail = () => {
                   </Link>
               </li>
           </ul>
-      </nav>
+      </nav> */}
       <div className="bg-black pb-[1080px] pt-[96px] flex justify-center">
         <div className="p-3 w-full xs:w-[390px] sm:w-[610px]">
           <h1 className="text-white text-3xl leading-none font-bold text-center mt-5 mb-3 pb-5 border-b border-white/15">{title || "Loading..."}</h1>

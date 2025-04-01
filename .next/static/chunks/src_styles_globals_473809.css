@@ -426,10 +426,6 @@ img, video {
   margin-top: 1.25rem;
 }
 
-.ml-3 {
-  margin-left: .75rem;
-}
-
 .block {
   display: block;
 }
@@ -705,6 +701,10 @@ img, video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
+.bg-white\/5 {
+  background-color: #ffffff0d;
+}
+
 .bg-none {
   background-image: none;
 }
@@ -721,12 +721,12 @@ img, video {
   padding: .75rem;
 }
 
-.p-5 {
-  padding: 1.25rem;
-}
-
 .p-4 {
   padding: 1rem;
+}
+
+.p-5 {
+  padding: 1.25rem;
 }
 
 .px-2 {

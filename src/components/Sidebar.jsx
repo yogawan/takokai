@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import { Icon } from "@iconify/react";
 
-const Sidebar = () => {
+const Sidebar = ({ href = "/", label = "Default" }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -43,7 +44,10 @@ const Sidebar = () => {
             </div>
           </button>
         </div>
-        <p className="text-white text-xs px-3 py-3 border border-white/15 rounded-full">JawirAI v2.6.3</p>
+
+        <Link href={href} legacyBehavior>
+          <Icon className="text-white" icon={label} width="32" height="32" />
+        </Link>
       </div>
 
       <div
@@ -64,6 +68,7 @@ const Sidebar = () => {
             <span className="absolute top-0 left-0 block w-6 h-0.5 bg-white rounded transform -rotate-45"></span>
           </div>
         </button>
+
         <ul className="space-y-[-12px] text-start">
           <p className="text-3xl text-white m-3">Our Team</p>
           {ChatHistory.map((item, index) => (
@@ -71,12 +76,14 @@ const Sidebar = () => {
               key={index}
               className="flex justify-start items-start text-white dark:text-white transition duration-500"
             >
-              <Link
-                href={item.path}
-                className="font-inter m-3 text-xl font-thin transition-transform transform hover:scale-110"
-                onClick={toggleMenu}
-              >
-                {item.label}
+              {/* Perbaikan di sini */}
+              <Link href={item.path} legacyBehavior>
+                <a
+                  className="font-inter m-3 text-xl font-thin transition-transform transform hover:scale-110"
+                  onClick={toggleMenu}
+                >
+                  {item.label}
+                </a>
               </Link>
             </li>
           ))}
