@@ -813,7 +813,7 @@ const CodeBlock = ({ content })=>{
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         onClick: ()=>handleCopyCode(code, index),
-                        className: "absolute top-2 right-2 bg-gray-800 text-white text-xs px-2 py-1 rounded hover:bg-gray-600 transition",
+                        className: "absolute top-5 right-2 bg-gray-800 text-white text-xs px-2 py-1 rounded hover:bg-gray-600 transition",
                         children: copiedIndex === index ? "Copied!" : "Copy"
                     }, void 0, false, {
                         fileName: "[project]/src/components/CodeBlock.jsx",

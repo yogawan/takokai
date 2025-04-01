@@ -48,7 +48,7 @@ const Login = () => {
         />
 
         <p className="text-xl text-white mb-5 ml-2 leading-1">
-          The first Indonesian's DeepSeek. Based in Javanese island
+          Indonesian DeepSeek with budget $16 (Beta Test)
         </p>
 
         {message && <p className="text-white">{message}</p>}

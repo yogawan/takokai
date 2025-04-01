@@ -610,10 +610,12 @@ __turbopack_esm__({
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/react/jsx-dev-runtime.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/react/index.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/link.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/router.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProtectedImage$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/components/ProtectedImage.jsx [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/axios/lib/axios.js [client] (ecmascript)");
 ;
 var _s = __turbopack_refresh__.signature();
+;
 ;
 ;
 ;
@@ -627,20 +629,36 @@ const Register = ()=>{
         password: ""
     });
     const [message, setMessage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])("");
+    const [passwordError, setPasswordError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])("");
+    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const handleChange = (e)=>{
         setFormData({
             ...formData,
             [e.target.name]: e.target.value
         });
     };
+    const validatePassword = (password)=>{
+        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+        return passwordRegex.test(password);
+    };
     const handleSubmit = async (e)=>{
         e.preventDefault();
         setMessage("");
+        setPasswordError("");
+        if (!validatePassword(formData.password)) {
+            setPasswordError("Password harus terdiri dari minimal 8 karakter, termasuk angka dan huruf.");
+            return;
+        }
+        setLoading(true);
         try {
             const response = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].post("/api/auth/register", formData);
             setMessage(response.data.message);
+            router.push("/");
         } catch (error) {
             setMessage(error.response?.data?.message || "Registrasi gagal");
+        } finally{
+            setLoading(false);
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -654,15 +672,15 @@ const Register = ()=>{
                     alt: "JawirAI Logo"
                 }, void 0, false, {
                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                    lineNumber: 34,
+                    lineNumber: 56,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                     className: "text-xl text-white mb-5 ml-2 leading-1",
-                    children: "The first Indonesian's DeepSeek. Based in Javanese island"
+                    children: "Indonesian DeepSeek with budget $16 (Beta Test)"
                 }, void 0, false, {
                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                    lineNumber: 40,
+                    lineNumber: 62,
                     columnNumber: 9
                 }, this),
                 message && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -670,8 +688,16 @@ const Register = ()=>{
                     children: message
                 }, void 0, false, {
                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                    lineNumber: 44,
+                    lineNumber: 66,
                     columnNumber: 21
+                }, this),
+                passwordError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                    className: "text-red-500",
+                    children: passwordError
+                }, void 0, false, {
+                    fileName: "[project]/src/pages/auth/register/index.jsx",
+                    lineNumber: 67,
+                    columnNumber: 27
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                     onSubmit: handleSubmit,
@@ -684,12 +710,12 @@ const Register = ()=>{
                                     children: "Name"
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                                    lineNumber: 49,
+                                    lineNumber: 72,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                                    lineNumber: 49,
+                                    lineNumber: 72,
                                     columnNumber: 58
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -701,13 +727,13 @@ const Register = ()=>{
                                     onChange: handleChange
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                                    lineNumber: 50,
+                                    lineNumber: 73,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/pages/auth/register/index.jsx",
-                            lineNumber: 48,
+                            lineNumber: 71,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -718,12 +744,12 @@ const Register = ()=>{
                                     children: "Username"
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                                    lineNumber: 61,
+                                    lineNumber: 84,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                                    lineNumber: 61,
+                                    lineNumber: 84,
                                     columnNumber: 62
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -735,13 +761,13 @@ const Register = ()=>{
                                     onChange: handleChange
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                                    lineNumber: 62,
+                                    lineNumber: 85,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/pages/auth/register/index.jsx",
-                            lineNumber: 60,
+                            lineNumber: 83,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -752,12 +778,12 @@ const Register = ()=>{
                                     children: "Email"
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                                    lineNumber: 73,
+                                    lineNumber: 96,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                                    lineNumber: 73,
+                                    lineNumber: 96,
                                     columnNumber: 59
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -769,13 +795,13 @@ const Register = ()=>{
                                     onChange: handleChange
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                                    lineNumber: 74,
+                                    lineNumber: 97,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/pages/auth/register/index.jsx",
-                            lineNumber: 72,
+                            lineNumber: 95,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -786,12 +812,12 @@ const Register = ()=>{
                                     children: "Password"
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                                    lineNumber: 85,
+                                    lineNumber: 108,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                                    lineNumber: 85,
+                                    lineNumber: 108,
                                     columnNumber: 62
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -803,28 +829,29 @@ const Register = ()=>{
                                     onChange: handleChange
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                                    lineNumber: 86,
+                                    lineNumber: 109,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/pages/auth/register/index.jsx",
-                            lineNumber: 84,
+                            lineNumber: 107,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                             className: "mt-5 border border-white/15 p-3 text-white/75 w-full rounded-full",
                             type: "submit",
-                            children: "Register"
+                            disabled: loading,
+                            children: loading ? "Loading..." : "Register"
                         }, void 0, false, {
                             fileName: "[project]/src/pages/auth/register/index.jsx",
-                            lineNumber: 96,
+                            lineNumber: 119,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                    lineNumber: 46,
+                    lineNumber: 69,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -835,27 +862,31 @@ const Register = ()=>{
                         children: "Sudah Punya Akun?"
                     }, void 0, false, {
                         fileName: "[project]/src/pages/auth/register/index.jsx",
-                        lineNumber: 100,
+                        lineNumber: 129,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/pages/auth/register/index.jsx",
-                    lineNumber: 99,
+                    lineNumber: 128,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/pages/auth/register/index.jsx",
-            lineNumber: 32,
+            lineNumber: 54,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/pages/auth/register/index.jsx",
-        lineNumber: 31,
+        lineNumber: 53,
         columnNumber: 5
     }, this);
 };
-_s(Register, "mtY3m5p3Hd5BOy78TESagTts5jo=");
+_s(Register, "KH0UagsuVvcvHusp5yIzLb68YYk=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useRouter"]
+    ];
+});
 _c = Register;
 const __TURBOPACK__default__export__ = Register;
 var _c;

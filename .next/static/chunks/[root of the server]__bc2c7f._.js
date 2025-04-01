@@ -671,7 +671,7 @@ const Login = ()=>{
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                     className: "text-xl text-white mb-5 ml-2 leading-1",
-                    children: "The first Indonesian's DeepSeek. Based in Javanese island"
+                    children: "Indonesian DeepSeek with budget $16 (Beta Test)"
                 }, void 0, false, {
                     fileName: "[project]/src/pages/index.js",
                     lineNumber: 50,

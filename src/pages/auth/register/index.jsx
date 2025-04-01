@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import ProtectedImage from "@/components/ProtectedImage";
 
 const Register = () => {
@@ -11,19 +12,40 @@ const Register = () => {
     password: "",
   });
   const [message, setMessage] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [loading, setLoading] = useState(false);
+  
+  const router = useRouter();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const validatePassword = (password) => {
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    return passwordRegex.test(password);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
+    setPasswordError("");
+
+    if (!validatePassword(formData.password)) {
+      setPasswordError("Password harus terdiri dari minimal 8 karakter, termasuk angka dan huruf.");
+      return;
+    }
+
+    setLoading(true);
+
     try {
       const response = await axios.post("/api/auth/register", formData);
       setMessage(response.data.message);
+      router.push("/");
     } catch (error) {
       setMessage(error.response?.data?.message || "Registrasi gagal");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -38,10 +60,11 @@ const Register = () => {
         />
 
         <p className="text-xl text-white mb-5 ml-2 leading-1">
-          The first Indonesian's DeepSeek. Based in Javanese island
+          Indonesian DeepSeek with budget $16 (Beta Test)
         </p>
 
         {message && <p className="text-white">{message}</p>}
+        {passwordError && <p className="text-red-500">{passwordError}</p>}
 
         <form onSubmit={handleSubmit}>
 
@@ -93,33 +116,22 @@ const Register = () => {
             />
           </div>
 
-          <button className="mt-5 border border-white/15 p-3 text-white/75 w-full rounded-full" type="submit">Register</button>
+          <button 
+            className="mt-5 border border-white/15 p-3 text-white/75 w-full rounded-full"
+            type="submit"
+            disabled={loading}
+          >
+            {loading ? "Loading..." : "Register"}
+          </button>
 
         </form>
         <div className="text-center mt-2">
           <Link className="text-white text-xs" href={"/"}>Sudah Punya Akun?</Link>
         </div>
 
-        {/* <hr className="mt-2 border-t border-white/15" />
-
-        <div className="mt-3 flex justify-center items-center border border-white/15 p-4 rounded-full">
-          <ProtectedImage src="/assets/google.png" className="w-[16px] h-[16px] mr-3" />
-          <p className="text-white/75 text-xs">Google (Disable)</p>
-        </div>
-
-        <div className="mt-3 flex justify-center items-center border border-white/15 p-4 rounded-full">
-          <ProtectedImage src="/assets/facebook.png" className="w-[16px] h-[16px] mr-3" />
-          <p className="text-white/75 text-xs">Facebook (Disable)</p>
-        </div>
-
-        <div className="mt-3 flex justify-center items-center border border-white/15 p-4 rounded-full">
-          <ProtectedImage src="/assets/x.png" className="w-[16px] h-[16px] mr-3" />
-          <p className="text-white/75 text-xs">X (Disable)</p>
-        </div> */}
-
       </div>
     </div>
   );
-}
+};
 
 export default Register;

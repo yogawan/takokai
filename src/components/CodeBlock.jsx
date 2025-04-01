@@ -23,7 +23,7 @@ const CodeBlock = ({ content }) => {
         <div key={index} className="relative bg-black/90 text-white rounded-xl mb-5 p-2">
           <button
             onClick={() => handleCopyCode(code, index)}
-            className="absolute top-2 right-2 bg-gray-800 text-white text-xs px-2 py-1 rounded hover:bg-gray-600 transition"
+            className="absolute top-5 right-2 bg-gray-800 text-white text-xs px-2 py-1 rounded hover:bg-gray-600 transition"
           >
             {copiedIndex === index ? "Copied!" : "Copy"}
           </button>

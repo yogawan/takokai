@@ -1,11 +1,10 @@
 {
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
+  "/auth/register": "pages/auth/register.js",
   "/": "pages/index.js",
+  "/api/auth/register": "pages/api/auth/register.js",
+  "/api/auth/login": "pages/api/auth/login.js",
   "/history": "pages/history.js",
-  "/api/history": "pages/api/history.js",
-  "/profile": "pages/profile.js",
-  "/api/profile": "pages/api/profile.js",
-  "/history/[id]": "pages/history/[id].js",
-  "/api/history/[id]": "pages/api/history/[id].js"
+  "/api/history": "pages/api/history.js"
 }
