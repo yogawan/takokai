@@ -269,9 +269,9 @@ const Login = ()=>{
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-        className: "bg-black h-screen flex justify-center items-center",
+        className: "bg-[url('/assets/background.png')] bg-cover h-screen flex justify-center items-center",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-            className: "w-full xs:w-[340px] p-3",
+            className: "w-full xs:w-[390px] p-3",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProtectedImage$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                     src: "/branding/logo.png",
@@ -284,7 +284,7 @@ const Login = ()=>{
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
                     className: "text-xl text-white mb-5 ml-2 leading-1",
-                    children: "Indonesian DeepSeek with budget $16 (Beta Test)"
+                    children: "TakonAI"
                 }, void 0, false, {
                     fileName: "[project]/src/pages/index.js",
                     lineNumber: 50,
@@ -303,7 +303,7 @@ const Login = ()=>{
                     onSubmit: handleSubmit,
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                            className: "w-full mt-2",
+                            className: "w-full mt-3",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("label", {
                                     className: "text-white/50",
@@ -314,7 +314,7 @@ const Login = ()=>{
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
-                                    className: "w-full text-white bg-transparent border border-white/15 p-3 rounded-xl",
+                                    className: "mt-2 w-full text-white bg-transparent border border-white/15 p-3 rounded-xl",
                                     type: "email",
                                     placeholder: "Email",
                                     value: email,
@@ -332,7 +332,7 @@ const Login = ()=>{
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                            className: "w-full mt-2",
+                            className: "w-full mt-3",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("label", {
                                     className: "text-white/50",
@@ -343,7 +343,7 @@ const Login = ()=>{
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
-                                    className: "w-full text-white bg-transparent border border-white/15 p-3 rounded-xl",
+                                    className: "mt-2 w-full text-white bg-transparent border border-white/15 p-3 rounded-xl",
                                     type: "password",
                                     placeholder: "Password",
                                     value: password,
@@ -361,7 +361,7 @@ const Login = ()=>{
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
-                            className: "mt-5 border border-white/15 p-3 text-white/75 w-full rounded-full",
+                            className: "mt-5 bg-primary p-4 text-white/75 w-full rounded-2xl",
                             type: "submit",
                             disabled: loading,
                             children: loading ? "Loading..." : "Login"
@@ -390,88 +390,6 @@ const Login = ()=>{
                 }, void 0, false, {
                     fileName: "[project]/src/pages/index.js",
                     lineNumber: 88,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("hr", {
-                    className: "mt-2 border-t border-white/15"
-                }, void 0, false, {
-                    fileName: "[project]/src/pages/index.js",
-                    lineNumber: 94,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                    className: "mt-3 flex justify-center items-center border border-white/15 p-4 rounded-full",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProtectedImage$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
-                            src: "/assets/google.png",
-                            className: "w-[16px] h-[16px] mr-3"
-                        }, void 0, false, {
-                            fileName: "[project]/src/pages/index.js",
-                            lineNumber: 97,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                            className: "text-white/75 text-xs",
-                            children: "Google (Disable)"
-                        }, void 0, false, {
-                            fileName: "[project]/src/pages/index.js",
-                            lineNumber: 98,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/src/pages/index.js",
-                    lineNumber: 96,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                    className: "mt-3 flex justify-center items-center border border-white/15 p-4 rounded-full",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProtectedImage$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
-                            src: "/assets/facebook.png",
-                            className: "w-[16px] h-[16px] mr-3"
-                        }, void 0, false, {
-                            fileName: "[project]/src/pages/index.js",
-                            lineNumber: 102,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                            className: "text-white/75 text-xs",
-                            children: "Facebook (Disable)"
-                        }, void 0, false, {
-                            fileName: "[project]/src/pages/index.js",
-                            lineNumber: 103,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/src/pages/index.js",
-                    lineNumber: 101,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                    className: "mt-3 flex justify-center items-center border border-white/15 p-4 rounded-full",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProtectedImage$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
-                            src: "/assets/x.png",
-                            className: "w-[16px] h-[16px] mr-3"
-                        }, void 0, false, {
-                            fileName: "[project]/src/pages/index.js",
-                            lineNumber: 107,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                            className: "text-white/75 text-xs",
-                            children: "X (Disable)"
-                        }, void 0, false, {
-                            fileName: "[project]/src/pages/index.js",
-                            lineNumber: 108,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/src/pages/index.js",
-                    lineNumber: 106,
                     columnNumber: 9
                 }, this)
             ]
