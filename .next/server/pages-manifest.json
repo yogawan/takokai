@@ -1,11 +1,15 @@
 {
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
-  "/profile": "pages/profile.js",
-  "/history": "pages/history.js",
-  "/history/[id]": "pages/history/[id].js",
   "/": "pages/index.js",
   "/auth/login": "pages/auth/login.js",
+  "/history": "pages/history.js",
+  "/api/history": "pages/api/history.js",
+  "/profile": "pages/profile.js",
+  "/api/profile": "pages/api/profile.js",
+  "/api/auth/login": "pages/api/auth/login.js",
   "/auth/register": "pages/auth/register.js",
-  "/_error": "pages/_error.js"
+  "/api/auth/register": "pages/api/auth/register.js",
+  "/history/[id]": "pages/history/[id].js",
+  "/api/history/[id]": "pages/api/history/[id].js"
 }

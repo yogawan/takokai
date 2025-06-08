@@ -65,15 +65,24 @@ function Document() {
         lang: "en",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$document$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["Head"], {
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("link", {
-                    rel: "icon",
-                    href: "/favicon/icon.png"
-                }, void 0, false, {
-                    fileName: "[project]/src/pages/_document.js",
-                    lineNumber: 7,
-                    columnNumber: 9
-                }, this)
-            }, void 0, false, {
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("title", {
+                        children: "TakonAI"
+                    }, void 0, false, {
+                        fileName: "[project]/src/pages/_document.js",
+                        lineNumber: 7,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("link", {
+                        rel: "icon",
+                        href: "/favicon/icon.png"
+                    }, void 0, false, {
+                        fileName: "[project]/src/pages/_document.js",
+                        lineNumber: 8,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "[project]/src/pages/_document.js",
                 lineNumber: 6,
                 columnNumber: 7
@@ -83,18 +92,18 @@ function Document() {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$document$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["Main"], {}, void 0, false, {
                         fileName: "[project]/src/pages/_document.js",
-                        lineNumber: 10,
+                        lineNumber: 11,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$document$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["NextScript"], {}, void 0, false, {
                         fileName: "[project]/src/pages/_document.js",
-                        lineNumber: 11,
+                        lineNumber: 12,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/pages/_document.js",
-                lineNumber: 9,
+                lineNumber: 10,
                 columnNumber: 7
             }, this)
         ]
@@ -743,17 +752,17 @@ const Sidebar = ({ href = "/", label = "Default" })=>{
     };
     const ChatHistory = [
         {
-            label: "yogawan",
+            label: "Yogawan",
             path: "/",
             icon: ""
         },
         {
-            label: "lootzelui",
+            label: "Firman",
             path: "/",
             icon: ""
         },
         {
-            label: "mikodian",
+            label: "Uday",
             path: "/",
             icon: ""
         }
@@ -988,7 +997,7 @@ const ChatDetail = ()=>{
     const fetchChatDetail = async ()=>{
         try {
             const token = localStorage.getItem("token");
-            const response = await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].get(`http://localhost:5000/api/history/${id}`, {
+            const response = await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].get(`/api/history/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -1013,7 +1022,7 @@ const ChatDetail = ()=>{
             const token = localStorage.getItem("token");
             if (!token) throw new Error("Token tidak ditemukan");
             for (const chat of chatHistory){
-                await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].post(`http://localhost:5000/api/history/${id}`, {
+                await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].post(`/api/history/${id}`, {
                     message: {
                         role: chat.role,
                         content: chat.content
@@ -1037,7 +1046,7 @@ const ChatDetail = ()=>{
         try {
             const token = localStorage.getItem("token");
             if (!token) throw new Error("Token tidak ditemukan");
-            const response = await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].get(`http://localhost:5000/api/history/${id}`, {
+            const response = await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].get(`/api/history/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -1120,7 +1129,7 @@ const ChatDetail = ()=>{
                                 children: title || "Loading..."
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/history/[id].jsx",
-                                lineNumber: 175,
+                                lineNumber: 169,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -1131,18 +1140,18 @@ const ChatDetail = ()=>{
                                     children: "Back"
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/history/[id].jsx",
-                                    lineNumber: 180,
+                                    lineNumber: 174,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/history/[id].jsx",
-                                lineNumber: 179,
+                                lineNumber: 173,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/pages/history/[id].jsx",
-                        lineNumber: 174,
+                        lineNumber: 168,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ChatForm$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -1152,7 +1161,7 @@ const ChatDetail = ()=>{
                         isLoading: isLoading
                     }, void 0, false, {
                         fileName: "[project]/src/pages/history/[id].jsx",
-                        lineNumber: 190,
+                        lineNumber: 183,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ChatHistory$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -1161,23 +1170,23 @@ const ChatDetail = ()=>{
                         handleClearHistory: handleClearHistory
                     }, void 0, false, {
                         fileName: "[project]/src/pages/history/[id].jsx",
-                        lineNumber: 196,
+                        lineNumber: 189,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/pages/history/[id].jsx",
-                lineNumber: 173,
+                lineNumber: 167,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/pages/history/[id].jsx",
-            lineNumber: 172,
+            lineNumber: 166,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/pages/history/[id].jsx",
-        lineNumber: 171,
+        lineNumber: 165,
         columnNumber: 5
     }, this);
 };

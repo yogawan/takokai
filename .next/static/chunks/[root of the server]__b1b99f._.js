@@ -1110,17 +1110,17 @@ const Sidebar = ({ href = "/", label = "Default" })=>{
     };
     const ChatHistory = [
         {
-            label: "yogawan",
+            label: "Yogawan",
             path: "/",
             icon: ""
         },
         {
-            label: "lootzelui",
+            label: "Firman",
             path: "/",
             icon: ""
         },
         {
-            label: "mikodian",
+            label: "Uday",
             path: "/",
             icon: ""
         }
@@ -1356,7 +1356,7 @@ const ChatDetail = ()=>{
     const fetchChatDetail = async ()=>{
         try {
             const token = localStorage.getItem("token");
-            const response = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].get(`http://localhost:5000/api/history/${id}`, {
+            const response = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].get(`/api/history/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -1381,7 +1381,7 @@ const ChatDetail = ()=>{
             const token = localStorage.getItem("token");
             if (!token) throw new Error("Token tidak ditemukan");
             for (const chat of chatHistory){
-                await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].post(`http://localhost:5000/api/history/${id}`, {
+                await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].post(`/api/history/${id}`, {
                     message: {
                         role: chat.role,
                         content: chat.content
@@ -1405,7 +1405,7 @@ const ChatDetail = ()=>{
         try {
             const token = localStorage.getItem("token");
             if (!token) throw new Error("Token tidak ditemukan");
-            const response = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].get(`http://localhost:5000/api/history/${id}`, {
+            const response = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].get(`/api/history/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -1488,7 +1488,7 @@ const ChatDetail = ()=>{
                                 children: title || "Loading..."
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/history/[id].jsx",
-                                lineNumber: 175,
+                                lineNumber: 169,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1499,18 +1499,18 @@ const ChatDetail = ()=>{
                                     children: "Back"
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/history/[id].jsx",
-                                    lineNumber: 180,
+                                    lineNumber: 174,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/history/[id].jsx",
-                                lineNumber: 179,
+                                lineNumber: 173,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/pages/history/[id].jsx",
-                        lineNumber: 174,
+                        lineNumber: 168,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ChatForm$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1520,7 +1520,7 @@ const ChatDetail = ()=>{
                         isLoading: isLoading
                     }, void 0, false, {
                         fileName: "[project]/src/pages/history/[id].jsx",
-                        lineNumber: 190,
+                        lineNumber: 183,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ChatHistory$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1529,23 +1529,23 @@ const ChatDetail = ()=>{
                         handleClearHistory: handleClearHistory
                     }, void 0, false, {
                         fileName: "[project]/src/pages/history/[id].jsx",
-                        lineNumber: 196,
+                        lineNumber: 189,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/pages/history/[id].jsx",
-                lineNumber: 173,
+                lineNumber: 167,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/pages/history/[id].jsx",
-            lineNumber: 172,
+            lineNumber: 166,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/pages/history/[id].jsx",
-        lineNumber: 171,
+        lineNumber: 165,
         columnNumber: 5
     }, this);
 };

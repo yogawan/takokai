@@ -566,16 +566,16 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$iconify$2f
 const Home = ()=>{
     const anggota = [
         {
-            npm: "1234567890",
+            npm: "5220411056",
             nama: "Yogaone"
         },
         {
-            npm: "0987654321",
-            nama: "Anggota Dua"
+            npm: "5220411000",
+            nama: "Firman"
         },
         {
-            npm: "1122334455",
-            nama: "Anggota Tiga"
+            npm: "5220411000",
+            nama: "Uday"
         }
     ];
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {

@@ -47,7 +47,7 @@ const Register = () => {
         formData,
       );
       setMessage(response.data.message);
-      router.push("/");
+      router.push("/auth/login");
     } catch (error) {
       setMessage(error.response?.data?.message || "Registrasi gagal");
     } finally {

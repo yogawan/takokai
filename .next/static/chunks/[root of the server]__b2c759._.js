@@ -574,17 +574,17 @@ const Sidebar = ({ href = "/", label = "Default" })=>{
     };
     const ChatHistory = [
         {
-            label: "yogawan",
+            label: "Yogawan",
             path: "/",
             icon: ""
         },
         {
-            label: "lootzelui",
+            label: "Firman",
             path: "/",
             icon: ""
         },
         {
-            label: "mikodian",
+            label: "Uday",
             path: "/",
             icon: ""
         }
@@ -787,7 +787,7 @@ var _s = __turbopack_refresh__.signature();
 ;
 ;
 ;
-const BASE_URL = "http://localhost:5000/api/history";
+const BASE_URL = "/api/history";
 const ChatHistory = ()=>{
     _s();
     const [chats, setChats] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])([]);

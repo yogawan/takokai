@@ -10,9 +10,9 @@ const Sidebar = ({ href = "/", label = "Default" }) => {
   };
 
   const ChatHistory = [
-    { label: "yogawan", path: "/", icon: "" },
-    { label: "lootzelui", path: "/", icon: "" },
-    { label: "mikodian", path: "/", icon: "" },
+    { label: "Yogawan", path: "/", icon: "" },
+    { label: "Firman", path: "/", icon: "" },
+    { label: "Uday", path: "/", icon: "" },
   ];
 
   return (
