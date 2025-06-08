@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { Icon } from "@iconify/react";
 import Sidebar from "@/components/Sidebar";
 
-const BASE_URL = "http://localhost:5000/api/history";
+const BASE_URL = "/api/history";
 
 const ChatHistory = () => {
   const [chats, setChats] = useState([]);

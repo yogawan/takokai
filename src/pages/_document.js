@@ -4,6 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        <title>TakonAI</title>
         <link rel="icon" href="/favicon/icon.png" />
       </Head>
       <body className="antialiased bg-background">

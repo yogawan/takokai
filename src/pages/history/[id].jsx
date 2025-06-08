@@ -29,12 +29,9 @@ const ChatDetail = () => {
   const fetchChatDetail = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get(
-        `http://localhost:5000/api/history/${id}`,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        },
-      );
+      const response = await axios.get(`/api/history/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       setTitle(response.data.title);
     } catch (error) {
       console.error(
@@ -64,7 +61,7 @@ const ChatDetail = () => {
 
       for (const chat of chatHistory) {
         await axios.post(
-          `http://localhost:5000/api/history/${id}`,
+          `/api/history/${id}`,
           { message: { role: chat.role, content: chat.content } },
           { headers: { Authorization: `Bearer ${token}` } },
         );
@@ -91,12 +88,9 @@ const ChatDetail = () => {
       const token = localStorage.getItem("token");
       if (!token) throw new Error("Token tidak ditemukan");
 
-      const response = await axios.get(
-        `http://localhost:5000/api/history/${id}`,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        },
-      );
+      const response = await axios.get(`/api/history/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
 
       const restoredChats = response.data.messages || [];
       setChatHistory(restoredChats);
@@ -186,7 +180,6 @@ const ChatDetail = () => {
             </div>
           </div>
 
-          {/* <ChatHeader /> */}
           <ChatForm
             input={input}
             setInput={setInput}
@@ -199,7 +192,9 @@ const ChatDetail = () => {
             handleClearHistory={handleClearHistory}
           />
 
-          {/* <div className="flex justify-center space-x-1 mt-4">
+          {/* Jika ingin mengaktifkan Sync/Restore, uncomment bagian ini */}
+          {/* 
+          <div className="flex justify-center space-x-1 mt-4">
             <button
               onClick={syncChatHistoryToServer}
               className="bg-blue-500 text-white px-4 py-2 rounded-full flex items-center"
@@ -241,7 +236,8 @@ const ChatDetail = () => {
               )}
               Restore
             </button>
-          </div> */}
+          </div> 
+          */}
         </div>
       </div>
     </div>
