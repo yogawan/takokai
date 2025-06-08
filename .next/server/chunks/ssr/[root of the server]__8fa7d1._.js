@@ -192,7 +192,7 @@ var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
 ]);
 ([__TURBOPACK__imported__module__$5b$externals$5d2f$groq$2d$sdk__$5b$external$5d$__$28$groq$2d$sdk$2c$__esm_import$29$__] = __turbopack_async_dependencies__.then ? (await __turbopack_async_dependencies__)() : __turbopack_async_dependencies__);
 ;
-const GROQ_API = ("TURBOPACK compile-time value", "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");
+const GROQ_API = ("TURBOPACK compile-time value", "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");
 if ("TURBOPACK compile-time falsy", 0) {
     "TURBOPACK unreachable";
 }
@@ -355,7 +355,7 @@ const ChatForm = ({ input, setInput, handleSend, isLoading })=>{
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-        className: "bg-transparent border border-white/15 rounded-3xl",
+        className: "fixed bottom-5 left-5 right-5 bg-[#171717] border border-white/15 rounded-3xl",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("textarea", {
                 type: "text",
@@ -382,7 +382,7 @@ const ChatForm = ({ input, setInput, handleSend, isLoading })=>{
                         height: "24"
                     }, void 0, false, {
                         fileName: "[project]/src/components/ChatForm.jsx",
-                        lineNumber: 31,
+                        lineNumber: 33,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
@@ -988,7 +988,7 @@ const ChatDetail = ()=>{
     const fetchChatDetail = async ()=>{
         try {
             const token = localStorage.getItem("token");
-            const response = await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].get(`/api/history/${id}`, {
+            const response = await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].get(`http://localhost:5000/api/history/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -1013,7 +1013,7 @@ const ChatDetail = ()=>{
             const token = localStorage.getItem("token");
             if (!token) throw new Error("Token tidak ditemukan");
             for (const chat of chatHistory){
-                await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].post(`/api/history/${id}`, {
+                await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].post(`http://localhost:5000/api/history/${id}`, {
                     message: {
                         role: chat.role,
                         content: chat.content
@@ -1037,7 +1037,7 @@ const ChatDetail = ()=>{
         try {
             const token = localStorage.getItem("token");
             if (!token) throw new Error("Token tidak ditemukan");
-            const response = await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].get(`/api/history/${id}`, {
+            const response = await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].get(`http://localhost:5000/api/history/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -1107,177 +1107,77 @@ const ChatDetail = ()=>{
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
         className: "bg-black w-full flex flex-col",
-        children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Sidebar$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
-                href: "/profile"
-            }, void 0, false, {
-                fileName: "[project]/src/pages/history/[id].jsx",
-                lineNumber: 147,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                className: "bg-black pb-[1080px] pt-[96px] flex justify-center",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                    className: "p-3 w-full xs:w-[390px] sm:w-[610px]",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h1", {
-                            className: "text-white text-3xl leading-none font-bold text-center mt-5 mb-3 pb-5 border-b border-white/15",
-                            children: title || "Loading..."
-                        }, void 0, false, {
-                            fileName: "[project]/src/pages/history/[id].jsx",
-                            lineNumber: 166,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                            className: "flex justify-end",
-                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                className: "text-xs text-black p-3 bg-white rounded-full",
-                                href: "/history",
-                                children: "Back"
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+            className: "bg-black pb-[1080px] flex justify-center",
+            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                className: "p-3 w-full xs:w-[390px] sm:w-[610px]",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                        className: "flex flex-col",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h1", {
+                                className: "text-white overflow-hidden w-full text-3xl leading-none font-bold text-start mt-5 mb-3 pb-5 border-b border-white/15",
+                                children: title || "Loading..."
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/history/[id].jsx",
-                                lineNumber: 168,
+                                lineNumber: 175,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                className: "flex justify-start",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                    className: "text-xs text-black px-10 py-5 bg-white rounded-full",
+                                    href: "/history",
+                                    children: "Back"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/pages/history/[id].jsx",
+                                    lineNumber: 180,
+                                    columnNumber: 15
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/src/pages/history/[id].jsx",
+                                lineNumber: 179,
                                 columnNumber: 13
                             }, this)
-                        }, void 0, false, {
-                            fileName: "[project]/src/pages/history/[id].jsx",
-                            lineNumber: 167,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ChatHeader$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
-                            fileName: "[project]/src/pages/history/[id].jsx",
-                            lineNumber: 170,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ChatForm$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
-                            input: input,
-                            setInput: setInput,
-                            handleSend: handleSend,
-                            isLoading: isLoading
-                        }, void 0, false, {
-                            fileName: "[project]/src/pages/history/[id].jsx",
-                            lineNumber: 171,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ChatHistory$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
-                            chatHistory: chatHistory,
-                            isLoading: isLoading,
-                            handleClearHistory: handleClearHistory
-                        }, void 0, false, {
-                            fileName: "[project]/src/pages/history/[id].jsx",
-                            lineNumber: 172,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                            className: "flex justify-center space-x-1 mt-4",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
-                                    onClick: syncChatHistoryToServer,
-                                    className: "bg-blue-500 text-white px-4 py-2 rounded-full flex items-center",
-                                    disabled: isSyncing,
-                                    children: [
-                                        isSyncing ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
-                                            className: "animate-spin mr-2",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__["Icon"], {
-                                                icon: "line-md:loading-loop",
-                                                width: "20",
-                                                height: "20"
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/pages/history/[id].jsx",
-                                                lineNumber: 181,
-                                                columnNumber: 19
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/pages/history/[id].jsx",
-                                            lineNumber: 180,
-                                            columnNumber: 17
-                                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
-                                            className: "mr-2",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__["Icon"], {
-                                                icon: "mdi:cloud-upload-outline",
-                                                width: "20",
-                                                height: "20"
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/pages/history/[id].jsx",
-                                                lineNumber: 185,
-                                                columnNumber: 19
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/pages/history/[id].jsx",
-                                            lineNumber: 184,
-                                            columnNumber: 17
-                                        }, this),
-                                        "Sync"
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/src/pages/history/[id].jsx",
-                                    lineNumber: 174,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
-                                    onClick: restoreChatHistoryFromServer,
-                                    className: "bg-green-500 text-white px-4 py-2 rounded-full flex items-center",
-                                    disabled: isRestoring,
-                                    children: [
-                                        isRestoring ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
-                                            className: "animate-spin mr-2",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__["Icon"], {
-                                                icon: "line-md:loading-loop",
-                                                width: "20",
-                                                height: "20"
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/pages/history/[id].jsx",
-                                                lineNumber: 198,
-                                                columnNumber: 19
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/pages/history/[id].jsx",
-                                            lineNumber: 197,
-                                            columnNumber: 17
-                                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
-                                            className: "mr-2",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__["Icon"], {
-                                                icon: "mdi:cloud-download-outline",
-                                                width: "20",
-                                                height: "20"
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/pages/history/[id].jsx",
-                                                lineNumber: 202,
-                                                columnNumber: 19
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/pages/history/[id].jsx",
-                                            lineNumber: 201,
-                                            columnNumber: 17
-                                        }, this),
-                                        "Restore"
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/src/pages/history/[id].jsx",
-                                    lineNumber: 191,
-                                    columnNumber: 13
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/src/pages/history/[id].jsx",
-                            lineNumber: 173,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/src/pages/history/[id].jsx",
-                    lineNumber: 165,
-                    columnNumber: 9
-                }, this)
-            }, void 0, false, {
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/pages/history/[id].jsx",
+                        lineNumber: 174,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ChatForm$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
+                        input: input,
+                        setInput: setInput,
+                        handleSend: handleSend,
+                        isLoading: isLoading
+                    }, void 0, false, {
+                        fileName: "[project]/src/pages/history/[id].jsx",
+                        lineNumber: 190,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ChatHistory$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
+                        chatHistory: chatHistory,
+                        isLoading: isLoading,
+                        handleClearHistory: handleClearHistory
+                    }, void 0, false, {
+                        fileName: "[project]/src/pages/history/[id].jsx",
+                        lineNumber: 196,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "[project]/src/pages/history/[id].jsx",
-                lineNumber: 164,
-                columnNumber: 7
+                lineNumber: 173,
+                columnNumber: 9
             }, this)
-        ]
-    }, void 0, true, {
+        }, void 0, false, {
+            fileName: "[project]/src/pages/history/[id].jsx",
+            lineNumber: 172,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
         fileName: "[project]/src/pages/history/[id].jsx",
-        lineNumber: 146,
+        lineNumber: 171,
         columnNumber: 5
     }, this);
 };

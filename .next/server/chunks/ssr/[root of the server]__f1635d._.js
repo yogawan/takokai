@@ -404,7 +404,6 @@ var __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$
 var __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__ = __turbopack_import__("[externals]/axios [external] (axios, esm_import)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/router.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__ = __turbopack_import__("[externals]/@iconify/react [external] (@iconify/react, esm_import)");
-// import Navbar from "@/components/Navbar";
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Sidebar$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/components/Sidebar.jsx [ssr] (ecmascript)");
 var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
     __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__,
@@ -418,22 +417,26 @@ var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
 ;
 ;
 ;
+const BASE_URL = "http://localhost:5000/api/history";
 const ChatHistory = ()=>{
     const [chats, setChats] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])([]);
     const [modalOpen, setModalOpen] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(false);
     const [editingChat, setEditingChat] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(null);
     const [title, setTitle] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])("");
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
+    const getAuthHeaders = ()=>{
+        const token = localStorage.getItem("token");
+        return {
+            Authorization: `Bearer ${token}`
+        };
+    };
     (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useEffect"])(()=>{
         fetchChats();
     }, []);
     const fetchChats = async ()=>{
         try {
-            const token = localStorage.getItem("token");
-            const response = await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].get("/api/history", {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
+            const response = await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].get(BASE_URL, {
+                headers: getAuthHeaders()
             });
             setChats(response.data);
         } catch (error) {
@@ -442,53 +445,43 @@ const ChatHistory = ()=>{
     };
     const handleCreateOrUpdate = async ()=>{
         try {
-            const token = localStorage.getItem("token");
-            if (!token) throw new Error("Token tidak ditemukan");
-            if (!title.trim()) {
-                alert("Title tidak boleh kosong");
-                return;
-            }
-            if (editingChat) {
-                // Update chat
-                await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].put(`/api/history?id=${editingChat._id}`, {
+            if (!title.trim()) return alert("Title tidak boleh kosong");
+            const id = editingChat?._id || editingChat?.id;
+            if (editingChat && id) {
+                await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].put(`${BASE_URL}/${id}`, {
                     title
                 }, {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
+                    headers: getAuthHeaders()
                 });
             } else {
-                // Create chat
-                await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].post("/api/history", {
+                await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].post(BASE_URL, {
                     title
                 }, {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
+                    headers: getAuthHeaders()
                 });
             }
-            fetchChats();
+            await fetchChats();
             closeModal();
         } catch (error) {
             console.error("Error saving chat:", error.response?.data || error.message);
+            alert("Gagal menyimpan chat.");
         }
     };
     const handleDelete = async (id)=>{
+        if (!id || !confirm("Yakin ingin menghapus chat ini?")) return;
         try {
-            const token = localStorage.getItem("token");
-            await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].delete(`/api/history?id=${id}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
+            await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].delete(`${BASE_URL}/${id}`, {
+                headers: getAuthHeaders()
             });
-            fetchChats();
+            await fetchChats();
         } catch (error) {
             console.error("Error deleting chat:", error.response?.data || error.message);
+            alert("Gagal menghapus chat.");
         }
     };
     const openModal = (chat = null)=>{
         setEditingChat(chat);
-        setTitle(chat ? chat.title : "");
+        setTitle(chat?.title || "");
         setModalOpen(true);
     };
     const closeModal = ()=>{
@@ -497,178 +490,220 @@ const ChatHistory = ()=>{
         setModalOpen(false);
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-        className: "pt-[96px] flex justify-center bg-black pb-[1080px] p-3",
+        className: "pt-[96px] min-h-screen bg-black text-white flex justify-center pb-[200px] p-3",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Sidebar$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                 href: "/profile",
                 label: "gg:profile"
             }, void 0, false, {
                 fileName: "[project]/src/pages/history/index.jsx",
-                lineNumber: 91,
+                lineNumber: 94,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                className: "w-full max-w-xl",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h1", {
-                        className: "text-center text-white text-3xl",
-                        children: "All Chat"
+                        className: "text-center text-3xl font-bold mb-8",
+                        children: "Semua Chat"
                     }, void 0, false, {
                         fileName: "[project]/src/pages/history/index.jsx",
-                        lineNumber: 94,
+                        lineNumber: 97,
                         columnNumber: 9
                     }, this),
+                    chats.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                        className: "flex flex-col items-center justify-center mt-20 text-white/60",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__["Icon"], {
+                                icon: "mdi:chat-off",
+                                width: "48",
+                                height: "48",
+                                className: "text-white"
+                            }, void 0, false, {
+                                fileName: "[project]/src/pages/history/index.jsx",
+                                lineNumber: 101,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                                className: "mt-4 text-lg font-semibold",
+                                children: "Belum ada chat tersedia"
+                            }, void 0, false, {
+                                fileName: "[project]/src/pages/history/index.jsx",
+                                lineNumber: 107,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/pages/history/index.jsx",
+                        lineNumber: 100,
+                        columnNumber: 11
+                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("ul", {
+                        className: "space-y-3",
+                        children: chats.map((chat)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
+                                className: "flex items-center justify-between bg-white/5 border border-white/15 rounded-xl px-4 py-3 backdrop-blur hover:scale-[1.01] transition-all",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
+                                        className: "text-left flex-1 text-white/80 font-medium hover:text-white focus:outline-none focus:ring-2 focus:ring-[#EEEEEE] rounded",
+                                        onClick: ()=>router.push(`/history/${chat._id || chat.id}`),
+                                        onKeyDown: (e)=>{
+                                            if (e.key === "Enter") router.push(`/history/${chat._id || chat.id}`);
+                                        },
+                                        children: chat.title
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/pages/history/index.jsx",
+                                        lineNumber: 118,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                        className: "flex gap-2 ml-3",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
+                                                onClick: ()=>openModal(chat),
+                                                className: "hover:text-[#EEEEEE] focus:outline-none focus:ring-2 focus:ring-[#EEEEEE] rounded",
+                                                "aria-label": `Edit ${chat.title}`,
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__["Icon"], {
+                                                    icon: "lucide:edit",
+                                                    width: "18",
+                                                    height: "18"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/pages/history/index.jsx",
+                                                    lineNumber: 135,
+                                                    columnNumber: 21
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/pages/history/index.jsx",
+                                                lineNumber: 130,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
+                                                onClick: ()=>handleDelete(chat._id || chat.id),
+                                                className: "hover:text-[#EEEEEE] focus:outline-none focus:ring-2 focus:ring-[#EEEEEE] rounded",
+                                                "aria-label": `Hapus ${chat.title}`,
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__["Icon"], {
+                                                    icon: "material-symbols:delete",
+                                                    width: "18",
+                                                    height: "18"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/pages/history/index.jsx",
+                                                    lineNumber: 142,
+                                                    columnNumber: 21
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/pages/history/index.jsx",
+                                                lineNumber: 137,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/pages/history/index.jsx",
+                                        lineNumber: 129,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, chat._id || chat.id, true, {
+                                fileName: "[project]/src/pages/history/index.jsx",
+                                lineNumber: 114,
+                                columnNumber: 15
+                            }, this))
+                    }, void 0, false, {
+                        fileName: "[project]/src/pages/history/index.jsx",
+                        lineNumber: 112,
+                        columnNumber: 11
+                    }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
-                        className: "bg-white/5 p-5 rounded-full border border-white/15 backdrop-blur text-white fixed bottom-5 right-5",
                         onClick: ()=>openModal(),
+                        className: "bg-white/10 hover:bg-white/20 backdrop-blur border border-white/15 fixed bottom-5 right-5 p-4 rounded-full shadow-xl focus:outline-none focus:ring-2 focus:ring-[#EEEEEE] transition-all",
+                        "aria-label": "Tambah chat baru",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__["Icon"], {
-                            className: "text-white",
                             icon: "ic:baseline-plus",
-                            width: "32",
-                            height: "32"
+                            width: "28",
+                            height: "28"
                         }, void 0, false, {
                             fileName: "[project]/src/pages/history/index.jsx",
-                            lineNumber: 97,
+                            lineNumber: 160,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/pages/history/index.jsx",
-                        lineNumber: 96,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("ul", {
-                        className: "p-3 w-[340px] xs:w-[390px] sm:w-[610px]",
-                        children: chats.map((chat)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
-                                className: "flex text-white/75 pt-3 pb-3 border-b border-white/15",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
-                                        onClick: ()=>router.push(`/history/${chat._id}`),
-                                        className: "text-left text-xl pb-2",
-                                        children: [
-                                            chat.title,
-                                            " "
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/src/pages/history/index.jsx",
-                                        lineNumber: 104,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
-                                        className: "text-xs pl-5",
-                                        onClick: ()=>openModal(chat),
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__["Icon"], {
-                                            icon: "lucide:edit",
-                                            width: "16",
-                                            height: "16",
-                                            className: "text-white"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/pages/history/index.jsx",
-                                            lineNumber: 107,
-                                            columnNumber: 17
-                                        }, this)
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/pages/history/index.jsx",
-                                        lineNumber: 106,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
-                                        className: "text-xs pl-3",
-                                        onClick: ()=>handleDelete(chat._id),
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__["Icon"], {
-                                            icon: "material-symbols:delete",
-                                            width: "16",
-                                            height: "16",
-                                            className: "text-white"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/pages/history/index.jsx",
-                                            lineNumber: 111,
-                                            columnNumber: 17
-                                        }, this)
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/pages/history/index.jsx",
-                                        lineNumber: 110,
-                                        columnNumber: 15
-                                    }, this)
-                                ]
-                            }, chat._id, true, {
-                                fileName: "[project]/src/pages/history/index.jsx",
-                                lineNumber: 102,
-                                columnNumber: 13
-                            }, this))
-                    }, void 0, false, {
-                        fileName: "[project]/src/pages/history/index.jsx",
-                        lineNumber: 100,
+                        lineNumber: 155,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/pages/history/index.jsx",
-                lineNumber: 93,
+                lineNumber: 96,
                 columnNumber: 7
             }, this),
             modalOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                className: "fixed top-0 left-0 right-0 flex justify-center items-center h-screen bg-black/15 backdrop-blur text-white",
+                className: "fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 p-4",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                    className: "p-3 w-full xs:w-[390px]",
+                    className: "w-full max-w-md bg-white/5 border border-white/15 p-6 rounded-2xl shadow-xl",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h2", {
-                            className: "ml-5",
-                            children: editingChat ? "Edit Chat" : "Tambah Chat"
+                            className: "text-xl font-semibold mb-4",
+                            children: editingChat ? "Edit Judul Chat" : "Buat Chat Baru"
                         }, void 0, false, {
                             fileName: "[project]/src/pages/history/index.jsx",
-                            lineNumber: 122,
+                            lineNumber: 168,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
-                            className: "w-full bg-transparent border border-white/15 p-3 m-3 rounded-xl",
                             type: "text",
                             value: title,
                             onChange: (e)=>setTitle(e.target.value),
-                            placeholder: "Masukkan judul chat"
+                            placeholder: "Masukkan judul chat",
+                            className: "w-full mb-4 px-4 py-2 rounded-xl bg-transparent border border-white/20 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#EEEEEE]",
+                            autoFocus: true,
+                            onKeyDown: (e)=>{
+                                if (e.key === "Enter") handleCreateOrUpdate();
+                            }
                         }, void 0, false, {
                             fileName: "[project]/src/pages/history/index.jsx",
-                            lineNumber: 123,
+                            lineNumber: 171,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                            className: "flex justify-between items-center ml-5 mr-5",
+                            className: "flex justify-end space-x-3",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
-                                    onClick: handleCreateOrUpdate,
-                                    children: editingChat ? "Simpan Perubahan" : "Tambah"
-                                }, void 0, false, {
-                                    fileName: "[project]/src/pages/history/index.jsx",
-                                    lineNumber: 131,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
                                     onClick: closeModal,
+                                    className: "px-4 py-2 rounded-lg bg-gray-600 hover:bg-gray-700 transition focus:outline-none focus:ring-2 focus:ring-white/30",
                                     children: "Batal"
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/history/index.jsx",
-                                    lineNumber: 134,
+                                    lineNumber: 183,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
+                                    onClick: handleCreateOrUpdate,
+                                    className: "px-4 py-2 rounded-lg bg-[#EEEEEE] text-black hover:brightness-90 transition focus:outline-none focus:ring-2 focus:ring-[#EEEEEE]",
+                                    children: editingChat ? "Simpan" : "Tambah"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/pages/history/index.jsx",
+                                    lineNumber: 189,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/pages/history/index.jsx",
-                            lineNumber: 130,
+                            lineNumber: 182,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/pages/history/index.jsx",
-                    lineNumber: 121,
+                    lineNumber: 167,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/pages/history/index.jsx",
-                lineNumber: 120,
+                lineNumber: 166,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/pages/history/index.jsx",
-        lineNumber: 89,
+        lineNumber: 93,
         columnNumber: 5
     }, this);
 };

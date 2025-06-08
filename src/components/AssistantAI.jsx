@@ -28,18 +28,21 @@ const AssistantAI = () => {
 
   const handleSend = async () => {
     if (!input.trim() || input.length > 500) return;
-  
+
     const userMessage = { role: "user", content: input };
     setChatHistory((prev) => [...prev, userMessage]);
     setInput("");
     setIsLoading(true);
-  
+
     try {
       const aiResponse = await requestToGroqAI(input);
       const aiMessage = { role: "ai", content: aiResponse };
       setChatHistory((prev) => [...prev, aiMessage]);
     } catch {
-      setChatHistory((prev) => [...prev, { role: "ai", content: "Sorry, an error occurred." }]);
+      setChatHistory((prev) => [
+        ...prev,
+        { role: "ai", content: "Sorry, an error occurred." },
+      ]);
     } finally {
       setIsLoading(false);
     }
@@ -52,9 +55,18 @@ const AssistantAI = () => {
 
   return (
     <div className="w-full flex flex-col">
-      <ChatHeader />
-      <ChatForm input={input} setInput={setInput} handleSend={handleSend} isLoading={isLoading} />
-      <ChatHistory chatHistory={chatHistory} isLoading={isLoading} handleClearHistory={handleClearHistory} />
+      {/* <ChatHeader /> */}
+      <ChatForm
+        input={input}
+        setInput={setInput}
+        handleSend={handleSend}
+        isLoading={isLoading}
+      />
+      <ChatHistory
+        chatHistory={chatHistory}
+        isLoading={isLoading}
+        handleClearHistory={handleClearHistory}
+      />
     </div>
   );
 };

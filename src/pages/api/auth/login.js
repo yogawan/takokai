@@ -1,3 +1,4 @@
+// src/pages/api/auth/login.js
 import connectionToDatabase from "@/lib/mongodb";
 import User from "@/models/User";
 import bcrypt from "bcryptjs";
@@ -27,7 +28,11 @@ export default async function handler(req, res) {
       return res.status(401).json({ message: "Password salah." });
     }
 
-    const token = jwt.sign({ userId: user._id, username: user.username }, process.env.JWT_SECRET, { expiresIn: "7d" });
+    const token = jwt.sign(
+      { userId: user._id, username: user.username },
+      process.env.JWT_SECRET,
+      { expiresIn: "7d" },
+    );
 
     return res.status(200).json({ message: "Login berhasil", token });
   } catch (error) {

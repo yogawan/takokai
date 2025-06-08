@@ -1,3 +1,4 @@
+// src/models/Chat.js
 import mongoose from "mongoose";
 
 const ChatSchema = new mongoose.Schema(
@@ -11,7 +12,7 @@ const ChatSchema = new mongoose.Schema(
       },
     ],
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 const Chat = mongoose.models.Chat || mongoose.model("Chat", ChatSchema);

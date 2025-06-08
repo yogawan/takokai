@@ -1,3 +1,4 @@
+// src/pages/api/history/index.js
 import connectionToDatabase from "@/lib/mongodb";
 import Chat from "@/models/Chat";
 import jwt from "jsonwebtoken";
@@ -20,7 +21,8 @@ export default async function handler(req, res) {
       if (id) {
         // GET by ID
         const chat = await Chat.findOne({ _id: id, userId });
-        if (!chat) return res.status(404).json({ message: "Chat tidak ditemukan" });
+        if (!chat)
+          return res.status(404).json({ message: "Chat tidak ditemukan" });
         return res.status(200).json(chat);
       } else {
         // GET all
@@ -49,10 +51,11 @@ export default async function handler(req, res) {
       const chat = await Chat.findOneAndUpdate(
         { _id: id, userId },
         { title, updatedAt: new Date() },
-        { new: true }
+        { new: true },
       );
 
-      if (!chat) return res.status(404).json({ message: "Chat tidak ditemukan" });
+      if (!chat)
+        return res.status(404).json({ message: "Chat tidak ditemukan" });
 
       return res.status(200).json(chat);
     }
@@ -62,7 +65,8 @@ export default async function handler(req, res) {
 
       const chat = await Chat.findOneAndDelete({ _id: id, userId });
 
-      if (!chat) return res.status(404).json({ message: "Chat tidak ditemukan" });
+      if (!chat)
+        return res.status(404).json({ message: "Chat tidak ditemukan" });
 
       return res.status(200).json({ message: "Chat berhasil dihapus" });
     }

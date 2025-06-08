@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { Icon } from "@iconify/react";
-// import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
+
+const BASE_URL = "http://localhost:5000/api/history";
 
 const ChatHistory = () => {
   const [chats, setChats] = useState([]);
@@ -12,70 +13,73 @@ const ChatHistory = () => {
   const [title, setTitle] = useState("");
   const router = useRouter();
 
+  const getAuthHeaders = () => {
+    const token = localStorage.getItem("token");
+    return { Authorization: `Bearer ${token}` };
+  };
+
   useEffect(() => {
     fetchChats();
   }, []);
 
   const fetchChats = async () => {
     try {
-      const token = localStorage.getItem("token");
-      const response = await axios.get("/api/history", {
-        headers: { Authorization: `Bearer ${token}` },
+      const response = await axios.get(BASE_URL, {
+        headers: getAuthHeaders(),
       });
       setChats(response.data);
     } catch (error) {
-      console.error("Error fetching chats:", error.response?.data || error.message);
+      console.error(
+        "Error fetching chats:",
+        error.response?.data || error.message,
+      );
     }
   };
 
   const handleCreateOrUpdate = async () => {
     try {
-      const token = localStorage.getItem("token");
-      if (!token) throw new Error("Token tidak ditemukan");
+      if (!title.trim()) return alert("Title tidak boleh kosong");
 
-      if (!title.trim()) {
-        alert("Title tidak boleh kosong");
-        return;
-      }
-
-      if (editingChat) {
-        // Update chat
+      const id = editingChat?._id || editingChat?.id;
+      if (editingChat && id) {
         await axios.put(
-          `/api/history?id=${editingChat._id}`,
+          `${BASE_URL}/${id}`,
           { title },
-          { headers: { Authorization: `Bearer ${token}` } }
+          { headers: getAuthHeaders() },
         );
       } else {
-        // Create chat
-        await axios.post(
-          "/api/history",
-          { title },
-          { headers: { Authorization: `Bearer ${token}` } }
-        );
+        await axios.post(BASE_URL, { title }, { headers: getAuthHeaders() });
       }
 
-      fetchChats();
+      await fetchChats();
       closeModal();
     } catch (error) {
-      console.error("Error saving chat:", error.response?.data || error.message);
+      console.error(
+        "Error saving chat:",
+        error.response?.data || error.message,
+      );
+      alert("Gagal menyimpan chat.");
     }
   };
 
   const handleDelete = async (id) => {
+    if (!id || !confirm("Yakin ingin menghapus chat ini?")) return;
+
     try {
-      const token = localStorage.getItem("token");
-      await axios.delete(`/api/history?id=${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      fetchChats();
+      await axios.delete(`${BASE_URL}/${id}`, { headers: getAuthHeaders() });
+      await fetchChats();
     } catch (error) {
-      console.error("Error deleting chat:", error.response?.data || error.message);
+      console.error(
+        "Error deleting chat:",
+        error.response?.data || error.message,
+      );
+      alert("Gagal menghapus chat.");
     }
   };
 
   const openModal = (chat = null) => {
     setEditingChat(chat);
-    setTitle(chat ? chat.title : "");
+    setTitle(chat?.title || "");
     setModalOpen(true);
   };
 
@@ -86,58 +90,114 @@ const ChatHistory = () => {
   };
 
   return (
-    <div className="pt-[96px] flex justify-center bg-black pb-[1080px] p-3">
-      {/* <Navbar /> */}
+    <div className="pt-[96px] min-h-screen bg-black text-white flex justify-center pb-[200px] p-3">
       <Sidebar href="/profile" label="gg:profile" />
 
-      <div>
-        <h1 className="text-center text-white text-3xl">All Chat</h1>
+      <div className="w-full max-w-xl">
+        <h1 className="text-center text-3xl font-bold mb-8">Semua Chat</h1>
 
-        <button className="bg-white/5 p-5 rounded-full border border-white/15 backdrop-blur text-white fixed bottom-5 right-5" onClick={() => openModal()}>
-          <Icon className="text-white" icon="ic:baseline-plus" width="32" height="32" />
+        {chats.length === 0 ? (
+          <div className="flex flex-col items-center justify-center mt-20 text-white/60">
+            <Icon
+              icon="mdi:chat-off"
+              width="48"
+              height="48"
+              className="text-white"
+            />
+            <p className="mt-4 text-lg font-semibold">
+              Belum ada chat tersedia
+            </p>
+          </div>
+        ) : (
+          <ul className="space-y-3">
+            {chats.map((chat) => (
+              <li
+                key={chat._id || chat.id}
+                className="flex items-center justify-between bg-white/5 border border-white/15 rounded-xl px-4 py-3 backdrop-blur hover:scale-[1.01] transition-all"
+              >
+                <button
+                  className="text-left flex-1 text-white/80 font-medium hover:text-white focus:outline-none focus:ring-2 focus:ring-[#EEEEEE] rounded"
+                  onClick={() => router.push(`/history/${chat._id || chat.id}`)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter")
+                      router.push(`/history/${chat._id || chat.id}`);
+                  }}
+                >
+                  {chat.title}
+                </button>
+
+                <div className="flex gap-2 ml-3">
+                  <button
+                    onClick={() => openModal(chat)}
+                    className="hover:text-[#EEEEEE] focus:outline-none focus:ring-2 focus:ring-[#EEEEEE] rounded"
+                    aria-label={`Edit ${chat.title}`}
+                  >
+                    <Icon icon="lucide:edit" width="18" height="18" />
+                  </button>
+                  <button
+                    onClick={() => handleDelete(chat._id || chat.id)}
+                    className="hover:text-[#EEEEEE] focus:outline-none focus:ring-2 focus:ring-[#EEEEEE] rounded"
+                    aria-label={`Hapus ${chat.title}`}
+                  >
+                    <Icon
+                      icon="material-symbols:delete"
+                      width="18"
+                      height="18"
+                    />
+                  </button>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {/* Floating Button */}
+        <button
+          onClick={() => openModal()}
+          className="bg-white/10 hover:bg-white/20 backdrop-blur border border-white/15 fixed bottom-5 right-5 p-4 rounded-full shadow-xl focus:outline-none focus:ring-2 focus:ring-[#EEEEEE] transition-all"
+          aria-label="Tambah chat baru"
+        >
+          <Icon icon="ic:baseline-plus" width="28" height="28" />
         </button>
-
-        <ul className="p-3 w-[340px] xs:w-[390px] sm:w-[610px]">
-          {chats.map((chat) => (
-            <li className="flex text-white/75 pt-3 pb-3 border-b border-white/15" key={chat._id}>
-              
-              <button onClick={() => router.push(`/history/${chat._id}`)} className="text-left text-xl pb-2">{chat.title}{" "}</button>
-
-              <button className="text-xs pl-5" onClick={() => openModal(chat)}>
-                <Icon icon="lucide:edit" width="16" height="16" className="text-white" />
-              </button>
-
-              <button className="text-xs pl-3" onClick={() => handleDelete(chat._id)}>
-                <Icon icon="material-symbols:delete" width="16" height="16" className="text-white" />
-              </button>
-
-            </li>
-          ))}
-        </ul>
       </div>
 
+      {/* Modal */}
       {modalOpen && (
-        <div className="fixed top-0 left-0 right-0 flex justify-center items-center h-screen bg-black/15 backdrop-blur text-white">
-          <div className="p-3 w-full xs:w-[390px]">
-            <h2 className="ml-5">{editingChat ? "Edit Chat" : "Tambah Chat"}</h2>
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="w-full max-w-md bg-white/5 border border-white/15 p-6 rounded-2xl shadow-xl">
+            <h2 className="text-xl font-semibold mb-4">
+              {editingChat ? "Edit Judul Chat" : "Buat Chat Baru"}
+            </h2>
             <input
-              className="w-full bg-transparent border border-white/15 p-3 m-3 rounded-xl"
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="Masukkan judul chat"
+              className="w-full mb-4 px-4 py-2 rounded-xl bg-transparent border border-white/20 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#EEEEEE]"
+              autoFocus
+              onKeyDown={(e) => {
+                if (e.key === "Enter") handleCreateOrUpdate();
+              }}
             />
-            <div className="flex justify-between items-center ml-5 mr-5">
-              <button onClick={handleCreateOrUpdate}>
-                {editingChat ? "Simpan Perubahan" : "Tambah"}
+            <div className="flex justify-end space-x-3">
+              <button
+                onClick={closeModal}
+                className="px-4 py-2 rounded-lg bg-gray-600 hover:bg-gray-700 transition focus:outline-none focus:ring-2 focus:ring-white/30"
+              >
+                Batal
               </button>
-              <button onClick={closeModal}>Batal</button>
+              <button
+                onClick={handleCreateOrUpdate}
+                className="px-4 py-2 rounded-lg bg-[#EEEEEE] text-black hover:brightness-90 transition focus:outline-none focus:ring-2 focus:ring-[#EEEEEE]"
+              >
+                {editingChat ? "Simpan" : "Tambah"}
+              </button>
             </div>
           </div>
         </div>
       )}
     </div>
   );
-}
+};
 
 export default ChatHistory;

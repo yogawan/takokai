@@ -1,3 +1,4 @@
+// src/pages/api/auth/register.js
 import connectionToDatabase from "@/lib/mongodb";
 import User from "@/models/User";
 import bcrypt from "bcryptjs";
@@ -19,16 +20,27 @@ export default async function handler(req, res) {
   try {
     const existingUser = await User.findOne({ $or: [{ email }, { username }] });
     if (existingUser) {
-      return res.status(400).json({ message: "Email atau username sudah digunakan." });
+      return res
+        .status(400)
+        .json({ message: "Email atau username sudah digunakan." });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newUser = await User.create({ name, username, email, password: hashedPassword });
-
-    const token = jwt.sign({ userId: newUser._id, username: newUser.username }, process.env.JWT_SECRET, {
-      expiresIn: "7d",
+    const newUser = await User.create({
+      name,
+      username,
+      email,
+      password: hashedPassword,
     });
+
+    const token = jwt.sign(
+      { userId: newUser._id, username: newUser.username },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "7d",
+      },
+    );
 
     return res.status(201).json({
       message: "Registrasi berhasil",

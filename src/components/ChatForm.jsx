@@ -9,7 +9,7 @@ const ChatForm = ({ input, setInput, handleSend, isLoading }) => {
   };
 
   return (
-    <div className="bg-transparent border border-white/15 rounded-3xl">
+    <div className="fixed bottom-5 left-5 right-5 bg-[#171717] border border-white/15 rounded-3xl">
       <textarea
         type="text"
         value={input}
@@ -24,11 +24,21 @@ const ChatForm = ({ input, setInput, handleSend, isLoading }) => {
         <button
           onClick={handleSend}
           className={`p-5 w-[64px] font-semibold rounded-full transition ${
-            isLoading ? "border border-white/15 text-white cursor-not-allowed" : "border border-white/15 text-white"
+            isLoading
+              ? "border border-white/15 text-white cursor-not-allowed"
+              : "border border-white/15 text-white"
           }`}
           disabled={isLoading}
         >
-          <Icon icon={isLoading ? "line-md:loading-twotone-loop" : "line-md:arrow-small-right"} width="24" height="24" />
+          <Icon
+            icon={
+              isLoading
+                ? "line-md:loading-twotone-loop"
+                : "line-md:arrow-small-right"
+            }
+            width="24"
+            height="24"
+          />
         </button>
       </div>
     </div>

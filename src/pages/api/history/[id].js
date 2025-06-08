@@ -1,3 +1,4 @@
+// src/pages/api/history/[id].js
 import connectionToDatabase from "@/lib/mongodb";
 import Chat from "@/models/Chat";
 import jwt from "jsonwebtoken";
@@ -29,8 +30,15 @@ export default async function handler(req, res) {
     if (req.method === "POST") {
       const { message } = req.body;
 
-      if (!message || typeof message !== "object" || !message.content || !message.role) {
-        return res.status(400).json({ message: "Message diperlukan dengan role dan content" });
+      if (
+        !message ||
+        typeof message !== "object" ||
+        !message.content ||
+        !message.role
+      ) {
+        return res
+          .status(400)
+          .json({ message: "Message diperlukan dengan role dan content" });
       }
 
       const chat = await Chat.findOne({ _id: id, userId });
@@ -42,14 +50,23 @@ export default async function handler(req, res) {
       chat.updatedAt = new Date();
       await chat.save();
 
-      return res.status(201).json({ message: "Pesan berhasil ditambahkan", chat });
+      return res
+        .status(201)
+        .json({ message: "Pesan berhasil ditambahkan", chat });
     }
 
     if (req.method === "PUT") {
       const { message } = req.body;
 
-      if (!message || typeof message !== "object" || !message.content || !message.role) {
-        return res.status(400).json({ message: "Message diperlukan dengan role dan content" });
+      if (
+        !message ||
+        typeof message !== "object" ||
+        !message.content ||
+        !message.role
+      ) {
+        return res
+          .status(400)
+          .json({ message: "Message diperlukan dengan role dan content" });
       }
 
       const chat = await Chat.findOne({ _id: id, userId });

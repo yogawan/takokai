@@ -1,3 +1,4 @@
+// src/pages/api/profile/index.js
 import jwt from "jsonwebtoken";
 import connectionToDatabase from "@/lib/mongodb";
 import User from "@/models/User";
@@ -25,6 +26,8 @@ export default async function handler(req, res) {
 
     return res.status(200).json(user);
   } catch (error) {
-    return res.status(500).json({ message: "Terjadi kesalahan server", error: error.message });
+    return res
+      .status(500)
+      .json({ message: "Terjadi kesalahan server", error: error.message });
   }
 }

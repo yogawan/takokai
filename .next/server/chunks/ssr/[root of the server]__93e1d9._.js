@@ -447,7 +447,6 @@ var __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$run
 var __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__ = __turbopack_import__("[externals]/react [external] (react, cjs)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/router.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__ = __turbopack_import__("[externals]/axios [external] (axios, esm_import)");
-// import Navbar from "@/components/Navbar";
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Sidebar$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/components/Sidebar.jsx [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProtectedImage$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/src/components/ProtectedImage.jsx [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__ = __turbopack_import__("[externals]/@iconify/react [external] (@iconify/react, esm_import)");
@@ -476,7 +475,7 @@ const Profile = ()=>{
                 return;
             }
             try {
-                const response = await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].get("/api/profile", {
+                const response = await __TURBOPACK__imported__module__$5b$externals$5d2f$axios__$5b$external$5d$__$28$axios$2c$__esm_import$29$__["default"].get("http://localhost:5000/api/profile", {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -484,7 +483,7 @@ const Profile = ()=>{
                 setUser(response.data);
             } catch (err) {
                 setError(err.response?.data?.message || "Terjadi kesalahan.");
-                localStorage.removeItem("token"); // Hapus token jika tidak valid
+                localStorage.removeItem("token");
             }
         };
         fetchUserProfile();
@@ -494,142 +493,155 @@ const Profile = ()=>{
         router.push("/");
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-        className: "bg-black",
+        className: "bg-black min-h-screen flex",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Sidebar$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                 href: "/history",
                 label: "ri:arrow-right-line"
             }, void 0, false, {
                 fileName: "[project]/src/pages/profile/index.jsx",
-                lineNumber: 45,
+                lineNumber: 44,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                className: "bg-black h-screen flex justify-center items-center",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProtectedImage$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
-                            src: "/branding/logo.png",
-                            className: "w-[128px] ml-5 mb-5",
-                            alt: "JawirAI Logo"
-                        }, void 0, false, {
-                            fileName: "[project]/src/pages/profile/index.jsx",
-                            lineNumber: 49,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h1", {
-                            className: "text-white text-3xl ml-5 mb-3",
-                            children: "User Profile"
-                        }, void 0, false, {
-                            fileName: "[project]/src/pages/profile/index.jsx",
-                            lineNumber: 55,
-                            columnNumber: 11
-                        }, this),
-                        error ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                            className: "text-red-500",
-                            children: error
-                        }, void 0, false, {
-                            fileName: "[project]/src/pages/profile/index.jsx",
-                            lineNumber: 58,
-                            columnNumber: 13
-                        }, this) : user ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                            className: "p-5 w-[340px] xs:w-[390px] border border-white/15 rounded-3xl",
+                className: "flex flex-col justify-center items-center w-full p-6",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProtectedImage$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
+                        src: "/branding/logo.png",
+                        className: "w-[96px] mb-4",
+                        alt: "JawirAI Logo"
+                    }, void 0, false, {
+                        fileName: "[project]/src/pages/profile/index.jsx",
+                        lineNumber: 47,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h1", {
+                        className: "text-white text-3xl font-semibold mb-2",
+                        children: "Selamat Datang!"
+                    }, void 0, false, {
+                        fileName: "[project]/src/pages/profile/index.jsx",
+                        lineNumber: 53,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                        className: "text-white/35 text-sm text-center max-w-md mb-6",
+                        children: "Ini adalah halaman profil kamu. Di sini kamu bisa melihat informasi singkat akunmu. Tetap semangat ya dalam berkarya dan eksplorasi ide-ide kreatif bersama JawirAI!"
+                    }, void 0, false, {
+                        fileName: "[project]/src/pages/profile/index.jsx",
+                        lineNumber: 56,
+                        columnNumber: 9
+                    }, this),
+                    error ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                        className: "text-red-500",
+                        children: error
+                    }, void 0, false, {
+                        fileName: "[project]/src/pages/profile/index.jsx",
+                        lineNumber: 63,
+                        columnNumber: 11
+                    }, this) : user ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                        className: "border border-white/15 rounded-3xl p-6 w-full max-w-sm bg-black/30 shadow-lg backdrop-blur",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                            className: "flex flex-col items-center space-y-4",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                    className: "flex items-center",
+                                    className: "w-24 h-24 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-white text-3xl font-bold",
+                                    children: user.name?.charAt(0).toUpperCase()
+                                }, void 0, false, {
+                                    fileName: "[project]/src/pages/profile/index.jsx",
+                                    lineNumber: 68,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                    className: "flex items-center gap-3",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__["Icon"], {
-                                            className: "text-white",
                                             icon: "gg:profile",
-                                            width: "16",
-                                            height: "16"
+                                            className: "text-white",
+                                            width: 20,
+                                            height: 20
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/profile/index.jsx",
-                                            lineNumber: 62,
+                                            lineNumber: 74,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                                            className: "ml-2 text-white/35 text-xs",
+                                            className: "text-white/35 text-sm",
                                             children: user.name
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/profile/index.jsx",
-                                            lineNumber: 63,
+                                            lineNumber: 80,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/pages/profile/index.jsx",
-                                    lineNumber: 61,
+                                    lineNumber: 73,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                    className: "flex items-center mt-2",
+                                    className: "flex items-center gap-3",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f40$iconify$2f$react__$5b$external$5d$__$2840$iconify$2f$react$2c$__esm_import$29$__["Icon"], {
-                                            className: "text-white",
                                             icon: "ic:baseline-email",
-                                            width: "16",
-                                            height: "16"
+                                            className: "text-white",
+                                            width: 20,
+                                            height: 20
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/profile/index.jsx",
-                                            lineNumber: 67,
+                                            lineNumber: 85,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                                            className: "ml-2 text-white/35 text-xs",
+                                            className: "text-white/35 text-sm",
                                             children: user.email
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/profile/index.jsx",
-                                            lineNumber: 68,
+                                            lineNumber: 91,
                                             columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("br", {}, void 0, false, {
-                                            fileName: "[project]/src/pages/profile/index.jsx",
-                                            lineNumber: 68,
-                                            columnNumber: 75
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/pages/profile/index.jsx",
-                                    lineNumber: 66,
+                                    lineNumber: 84,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
-                                    className: "p-3 mt-5 bg-red-500 rounded-full text-white/75 text-xs",
                                     onClick: handleLogout,
+                                    className: "mt-4 w-full py-2 bg-red-500 rounded-full text-white/75 text-sm transition hover:bg-red-600",
                                     children: "Logout"
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/profile/index.jsx",
-                                    lineNumber: 70,
+                                    lineNumber: 95,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/pages/profile/index.jsx",
-                            lineNumber: 60,
-                            columnNumber: 13
-                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                            children: "Loading..."
-                        }, void 0, false, {
-                            fileName: "[project]/src/pages/profile/index.jsx",
-                            lineNumber: 78,
+                            lineNumber: 66,
                             columnNumber: 13
                         }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/src/pages/profile/index.jsx",
-                    lineNumber: 48,
-                    columnNumber: 9
-                }, this)
-            }, void 0, false, {
+                    }, void 0, false, {
+                        fileName: "[project]/src/pages/profile/index.jsx",
+                        lineNumber: 65,
+                        columnNumber: 11
+                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                        className: "text-white",
+                        children: "Loading..."
+                    }, void 0, false, {
+                        fileName: "[project]/src/pages/profile/index.jsx",
+                        lineNumber: 104,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "[project]/src/pages/profile/index.jsx",
-                lineNumber: 47,
+                lineNumber: 46,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/pages/profile/index.jsx",
-        lineNumber: 44,
+        lineNumber: 43,
         columnNumber: 5
     }, this);
 };
